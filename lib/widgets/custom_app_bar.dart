@@ -9,9 +9,9 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 90.0,
+      height: 100.0,
       padding: const EdgeInsets.symmetric(
-        vertical: 15.0,
+        vertical: 20.0,
         horizontal: 24.0,
       ),
       // Clamp the opacity between 0 and 1

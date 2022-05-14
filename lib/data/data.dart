@@ -1,4 +1,8 @@
 import '../assets.dart';
-import '../models/content_model.dart';
+import '../models/models.dart';
 
-const Content casinoHeist = Content(name: 'Casino Heist', imageUrl: Assets.casinoHeist, videoUrl: Assets.casinoHeistVideoUrl);
+const Content casinoHeistContent = Content(
+    name: 'Casino Heist',
+    imageUrl: Assets.casinoHeist,
+    videoUrl: Assets.casinoHeistVideo,
+    titleImageUrl: Assets.casinoHeistTitle);

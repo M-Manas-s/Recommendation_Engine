@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:recommendation_engine/widgets/widgets.dart';
 
+import '../data/data.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -34,6 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final Size screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
       backgroundColor: Colors.black,
       appBar: PreferredSize(
         preferredSize: Size(screenSize.width, 100.0),
@@ -46,8 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
         slivers: [
           SliverToBoxAdapter(
             child: Container(
-              height: 10000.0,
-              color: Colors.blue,
+              child: const ContentHeader(featuredContent : casinoHeistContent),
             ),
           )
         ],
