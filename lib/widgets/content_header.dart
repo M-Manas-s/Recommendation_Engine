@@ -32,7 +32,7 @@ class ContentHeader extends StatelessWidget {
         Positioned(
           bottom: 110.0,
           child: SizedBox(
-            width: 250.0,
+            width: 300.0,
             child: Image.asset(featuredContent.titleImageUrl!),
           ),
         ),

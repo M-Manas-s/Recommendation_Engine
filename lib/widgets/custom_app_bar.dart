@@ -14,9 +14,11 @@ class CustomAppBar extends StatelessWidget {
         vertical: 20.0,
         horizontal: 24.0,
       ),
+
       // Clamp the opacity between 0 and 1
       // based on the scrolling pixels
       // That means - scrolling 350 pixels will render the Opacity as 1
+      
       color: Colors.black.withOpacity((scrollOffset/350).clamp(0,1).toDouble()),
 
       child: SafeArea(

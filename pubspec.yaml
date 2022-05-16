@@ -59,8 +59,17 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/
-    - assets/videos/
+  # images
+    - assets/images/casino_heist/
+    - assets/images/fish_games/
+    - assets/images/hazlock_shomes/
+    - assets/images/it_comes/
+    - assets/images/night_mafia/
+    - assets/images/under_the_water/
+    - assets/images/where_to/
+
+  # videos
+    - assets/videos/casino_heist/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
