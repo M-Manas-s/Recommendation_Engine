@@ -4,7 +4,7 @@ import 'package:recommendation_engine/widgets/widgets.dart';
 import '../data/data.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({required Key key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -37,7 +37,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.black,
       appBar: PreferredSize(
         preferredSize: Size(screenSize.width, 100.0),
         child: CustomAppBar(
@@ -52,19 +51,22 @@ class _HomeScreenState extends State<HomeScreen> {
               child: const ContentHeader(featuredContent: casinoHeistContent),
             ),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
               child: ContentList(
+                key: PageStorageKey('homeScreen'),
             title: 'My List',
             contentList: myList,
           )),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
               child: ContentList(
+                key: PageStorageKey('homeScreen'),
             title: 'Originals',
             contentList: originals,
             isOriginals: true,
           )),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
               child: ContentList(
+                key: PageStorageKey('homeScreen'),
             title: 'Trending',
             contentList: trending,
           )),

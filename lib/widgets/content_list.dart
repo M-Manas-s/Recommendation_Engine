@@ -44,7 +44,7 @@ class ContentList extends StatelessWidget {
                     child: Container(
                       margin: const EdgeInsets.symmetric(horizontal: 8.0),
                       height: isOriginals ? 400.0 : 200.0,
-                      width: isOriginals ? 200.0 : 130.0,
+                      width: isOriginals ? 230.0 : 130.0,
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage(content.imageUrl),

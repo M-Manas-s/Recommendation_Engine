@@ -67,6 +67,7 @@ flutter:
     - assets/images/night_mafia/
     - assets/images/under_the_water/
     - assets/images/where_to/
+    - assets/images/app_core/
 
   # videos
     - assets/videos/casino_heist/

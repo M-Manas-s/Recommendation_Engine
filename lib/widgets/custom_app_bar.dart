@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../assets.dart';
+
 class CustomAppBar extends StatelessWidget {
 
   final double scrollOffset;
@@ -18,15 +20,16 @@ class CustomAppBar extends StatelessWidget {
       // Clamp the opacity between 0 and 1
       // based on the scrolling pixels
       // That means - scrolling 350 pixels will render the Opacity as 1
-      
+
       color: Colors.black.withOpacity((scrollOffset/350).clamp(0,1).toDouble()),
 
       child: SafeArea(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+            Image.asset(Assets.appIcon),
             _AppBarButton(title: "Movies", onTap: () => print("Tv shows")),
-            _AppBarButton(title: "Trailers", onTap: () => print("Trailers")),
+            _AppBarButton(title: "For You", onTap: () => print("For You")),
             _AppBarButton(title: "My List", onTap: () => print("My List")),
           ],
         ),
