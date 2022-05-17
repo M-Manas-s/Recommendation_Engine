@@ -41,12 +41,15 @@ class ContentList extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context,int index){
                   final Content content = contentList[index];
-                  return ContentImageAndTitle(
-                    height: isOriginals ? 400.0 : 200.0,
-                    width: isOriginals ? 230.0 : 130.0,
-                    featuredContent: content,
-                    shadow: false,
-                    onTap: () => print(content.name),
+                  return Padding(
+                    padding: EdgeInsets.only( right : index != contentList.length ? 10.0 : 0.0),
+                    child: ContentImageAndTitle(
+                      height: isOriginals ? 400.0 : 200.0,
+                      width: isOriginals ? 230.0 : 130.0,
+                      featuredContent: content,
+                      shadow: false,
+                      onTap: () => print(content.name),
+                    ),
                   );
                 }),
           )

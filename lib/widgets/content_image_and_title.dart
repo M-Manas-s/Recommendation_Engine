@@ -30,7 +30,6 @@ class ContentImageAndTitle extends StatelessWidget {
     return GestureDetector(
       onTap: () => _onTap(),
       child: Container(
-        padding: const EdgeInsets.only(right: 20.0),
         height: _height,
         width: _width,
         child: Stack(
