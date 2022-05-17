@@ -9,27 +9,33 @@ const Content casinoHeistContent = Content(
 
 const Content fishGamesContent = Content(
     name: 'Fish Games',
-    imageUrl: Assets.fishGames);
+    imageUrl: Assets.fishGames,
+    titleImageUrl: Assets.fishGamesTitle);
 
 const Content hazlockShomesContent = Content(
     name: 'Hazlock Shomes',
-    imageUrl: Assets.hazlockShomes);
+    imageUrl: Assets.hazlockShomes,
+    titleImageUrl: Assets.hazlockShomesTitle);
 
 const Content itComesContent = Content(
-    name: 'It Comes',
-    imageUrl: Assets.itComes);
+    name: 'It Follows',
+    imageUrl: Assets.itFollows,
+    titleImageUrl: Assets.itFollowsTitle);
 
 const Content nightMafiaContent = Content(
     name: 'Night Mafia',
-    imageUrl: Assets.nightMafia);
+    imageUrl: Assets.nightMafia,
+    titleImageUrl: Assets.nightMafiaTitle);
 
 const Content underTheWaterContent = Content(
     name: 'Under The Water',
-    imageUrl: Assets.underTheWater);
+    imageUrl: Assets.underTheWater,
+    titleImageUrl: Assets.underTheWaterTitle);
 
 const Content whereToContent = Content(
     name: 'Where To',
-    imageUrl: Assets.whereTo);
+    imageUrl: Assets.whereTo,
+    titleImageUrl: Assets.whereToTitle);
 
 const List<Content> trending = [
   nightMafiaContent,

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-
 import '../models/models.dart';
 import '../widgets/widgets.dart';
+
+// Builds the featured area on the home page, with list, play and info buttons
 
 class ContentHeader extends StatelessWidget {
   final Content featuredContent;
@@ -11,30 +12,17 @@ class ContentHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double height = 500;
+    bool shadow = true;
     return Stack(
       alignment: Alignment.center,
       children: [
-        Container(
-          height: 500.0,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage(featuredContent.imageUrl),
-                  fit: BoxFit.cover)),
-        ),
-        Container(
-          height: 500.0,
-          decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [Colors.black, Colors.transparent],
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.center)),
-        ),
-        Positioned(
-          bottom: 110.0,
-          child: SizedBox(
-            width: 300.0,
-            child: Image.asset(featuredContent.titleImageUrl!),
-          ),
+        ContentImageAndTitle(
+          width: MediaQuery.of(context).size.width,
+          height: height,
+          featuredContent: featuredContent,
+          shadow: shadow,
+          onTap: () {},
         ),
         Positioned(
           left: 0,
@@ -67,7 +55,11 @@ class _PlayButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
         onPressed: () => print("Play"),
-        icon: const Icon(Icons.play_arrow, size: 30.0, color: Colors.black,),
+        icon: const Icon(
+          Icons.play_arrow,
+          size: 30.0,
+          color: Colors.black,
+        ),
         style: ElevatedButton.styleFrom(primary: Colors.white),
         label: const Text(
           "Play",

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-
+import '../widgets/widgets.dart';
 import '../models/models.dart';
+
+// Builds the horizontal scrollable content area
 
 class ContentList extends StatelessWidget {
   final String title;
@@ -39,19 +41,12 @@ class ContentList extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context,int index){
                   final Content content = contentList[index];
-                  return GestureDetector(
-                    onTap : () => print(content.name),
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 8.0),
-                      height: isOriginals ? 400.0 : 200.0,
-                      width: isOriginals ? 230.0 : 130.0,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(content.imageUrl),
-                          fit: BoxFit.cover,
-                        )
-                      ),
-                    ),
+                  return ContentImageAndTitle(
+                    height: isOriginals ? 400.0 : 200.0,
+                    width: isOriginals ? 230.0 : 130.0,
+                    featuredContent: content,
+                    shadow: false,
+                    onTap: () => print(content.name),
                   );
                 }),
           )
