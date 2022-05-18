@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:recommendation_engine/models/models.dart';
 
 import '../assets.dart';
 
@@ -28,7 +30,7 @@ class CustomAppBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Image.asset(Assets.appIcon),
-            _AppBarButton(title: "Movies", onTap: () => print("Tv shows")),
+            _AppBarButton(title: "Movies", onTap: () => Provider.of<HomeScreenNavState>(context,listen: false).changeIndex(0)),
             _AppBarButton(title: "For You", onTap: () => print("For You")),
             _AppBarButton(title: "My List", onTap: () => print("My List")),
           ],
@@ -50,13 +52,16 @@ class _AppBarButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => onTap,
-      child: Text(
-        title,
-        style: const TextStyle(
-            color :  Colors.white,
-            fontSize: 16.0,
-            fontWeight: FontWeight.w600
+      onTap: () => onTap(),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text(
+          title,
+          style: const TextStyle(
+              color :  Colors.white,
+              fontSize: 16.0,
+              fontWeight: FontWeight.w600
+          ),
         ),
       ),
     );

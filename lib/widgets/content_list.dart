@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../screens/screens.dart';
+import 'package:provider/provider.dart';
 import '../widgets/widgets.dart';
 import '../models/models.dart';
 
@@ -49,13 +49,10 @@ class ContentList extends StatelessWidget {
                       width: isOriginals ? 230.0 : 130.0,
                       featuredContent: content,
                       shadow: false,
-                      onTap: () =>Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              ContentInfo(content: content),
-                        ),
-                      ),
+                      onTap: () {
+                        Provider.of<HomeScreenNavState>(context,listen: false).content = contentList[index];
+                        Provider.of<HomeScreenNavState>(context,listen: false).changeIndex(3);
+                      },
                     ),
                   );
                 }),

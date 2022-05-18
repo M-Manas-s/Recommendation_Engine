@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:recommendation_engine/screens/screens.dart';
+import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
 
 import '../models/models.dart';
@@ -102,21 +102,8 @@ class _ContentHeaderState extends State<ContentHeader> {
                   icon: Icons.info_outline,
                   title: 'Info',
                   onTap: () async {
-                    setState(() {
-                      offFocus = true;
-                      _videoPlayerController.pause();
-                    });
-                    await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            ContentInfo(content: widget.featuredContent),
-                      ),
-                    );
-                    setState(() {
-                      offFocus = false;
-                      _videoPlayerController.play();
-                    });
+                    Provider.of<HomeScreenNavState>(context,listen: false).content = widget.featuredContent;
+                    Provider.of<HomeScreenNavState>(context,listen: false).changeIndex(3);
                   }),
             ],
           ),

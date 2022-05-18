@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.black
       ),
       title: 'Flutter Demo',
-      home: NavScreen(),
+      home: BottomNavScreen(),
     );
   }
 }

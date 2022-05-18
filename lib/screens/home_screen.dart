@@ -4,6 +4,7 @@ import 'package:recommendation_engine/widgets/widgets.dart';
 import '../data/data.dart';
 
 class HomeScreen extends StatefulWidget {
+
   const HomeScreen({required Key key}) : super(key: key);
 
   @override
@@ -11,19 +12,20 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  double _scrollOffset = 0.0;
+
   late ScrollController _scrollController;
+  double _scrollOffset = 0.0;
 
   @override
   void initState() {
+    super.initState();
     _scrollController = ScrollController()
       ..addListener(() {
         setState(() {
           _scrollOffset = _scrollController.offset;
         });
       });
-    super.initState();
-  }
+}
 
   @override
   void dispose() {
@@ -38,11 +40,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: PreferredSize(
-        preferredSize: Size(screenSize.width, 100.0),
-        child: CustomAppBar(
-          scrollOffset: _scrollOffset,
-        ),
+      preferredSize: Size(screenSize.width, 100.0),
+      child: CustomAppBar(
+        scrollOffset: _scrollOffset,
       ),
+    ),
       body: CustomScrollView(
         controller: _scrollController,
         slivers: [

@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:recommendation_engine/models/models.dart';
 import 'package:recommendation_engine/screens/screens.dart';
 
-class NavScreen extends StatefulWidget {
-  const NavScreen({Key? key}) : super(key: key);
+// bottom nav screen is the parent of all the screens
+
+class BottomNavScreen extends StatefulWidget {
+  const BottomNavScreen({Key? key}) : super(key: key);
 
   @override
-  State<NavScreen> createState() => _NavScreenState();
+  State<BottomNavScreen> createState() => _BottomNavScreenState();
 }
 
-class _NavScreenState extends State<NavScreen> {
+class _BottomNavScreenState extends State<BottomNavScreen> {
   final List<Widget> _screens = [
-    HomeScreen(key: PageStorageKey('homeScreen')),
+    ChangeNotifierProvider<HomeScreenNavState>(
+      create: (_) => HomeScreenNavState(),
+        child: HomeTopNavScreen(key: PageStorageKey('homeScreen'))),
     Scaffold(),
     const Scaffold()
   ];

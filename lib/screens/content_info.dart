@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../data/data.dart';
 import '../models/models.dart';
 import '../widgets/widgets.dart';
 
 class ContentInfo extends StatefulWidget {
-  final Content content;
 
-  const ContentInfo({Key? key, required this.content}) : super(key: key);
+  const ContentInfo({Key? key})
+      : super(key: key);
 
   @override
   State<ContentInfo> createState() => _ContentInfoState();
@@ -15,30 +16,55 @@ class ContentInfo extends StatefulWidget {
 
 class _ContentInfoState extends State<ContentInfo> {
   late List<String> featuredTags = [];
+  late Content content;
+  late ScrollController _scrollController;
+  double _scrollOffset = 0.0;
 
   @override
   void initState() {
     super.initState();
+    content = Provider.of<HomeScreenNavState>(context,listen: false).content;
 
     // Sorting the tags based on tagValue, to get important tags
     // Then that is displayed in the information for that content
 
-    widget.content.tags
-        ?.sort((tag1, tag2) => (tag1.tagValue < tag2.tagValue) ? 1 : 0);
+    content.tags?.sort((tag1, tag2) => (tag1.tagValue < tag2.tagValue) ? 1 : 0);
     for (int i = 0; i < 3; i++) {
-      featuredTags.add(widget.content.tags!.elementAt(i).tagName);
+      featuredTags.add(content.tags!.elementAt(i).tagName);
     }
+    _scrollController = ScrollController()
+      ..addListener(() {
+        setState(() {
+          _scrollOffset = _scrollController.offset;
+        });
+      });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: PreferredSize(
+        preferredSize: Size(screenSize.width, 100.0),
+        child: CustomAppBar(
+          scrollOffset: _scrollOffset,
+        ),
+      ),
       body: CustomScrollView(
+        controller: _scrollController,
         slivers: [
           SliverToBoxAdapter(
             child: Stack(alignment: Alignment.center, children: [
               ContentImageAndTitle(
-                featuredContent: widget.content,
+                featuredContent: content,
                 onTap: () {},
                 width: MediaQuery.of(context).size.width,
                 height: 500.0,
@@ -65,7 +91,7 @@ class _ContentInfoState extends State<ContentInfo> {
               ),
 
               // Two overlapping icons are required to build
-              // a dilled play button
+              // a filled play button
 
               Transform.translate(
                 offset: const Offset(0, -20),
@@ -85,7 +111,7 @@ class _ContentInfoState extends State<ContentInfo> {
                   icon: Icon(
                     Icons.play_circle,
                     size: 60.0,
-                    color: widget.content.color,
+                    color: content.color,
                   ),
                   onPressed: () {
                     print("Pressed");
@@ -104,7 +130,7 @@ class _ContentInfoState extends State<ContentInfo> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        widget.content.name,
+                        content.name,
                         style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w500,
@@ -113,16 +139,19 @@ class _ContentInfoState extends State<ContentInfo> {
                       Row(children: [
                         const Icon(Icons.star, color: Color(0xfffcf800)),
                         const SizedBox(width: 10.0,),
-                        Text(widget.content.rating.toString(),style:  const TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 18),)
+                        Text(
+                          content.rating.toString(),
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 18),
+                        )
                       ])
                     ],
                   ),
                   const SizedBox(height: 10.0),
                   Text(
-                    widget.content.description!,
+                    content.description!,
                     textAlign: TextAlign.left,
                     style: const TextStyle(
                         color: Colors.white,
@@ -137,15 +166,15 @@ class _ContentInfoState extends State<ContentInfo> {
               child: Container(
                 margin: const EdgeInsets.only(top : 30.0),
                 child: ContentList(
-                  key: PageStorageKey(widget.content.name),
-                  title: 'Similar',
-                  contentList: originals,
-                  isOriginals: false,
-                ),
+                  key: PageStorageKey(content.name),
+              title: 'Similar',
+              contentList: originals,
+              isOriginals: false,
+            ),
               )),
           SliverToBoxAdapter(
             child: ContentList(
-              key: PageStorageKey(widget.content.name),
+              key: PageStorageKey(content.name),
               title: 'Recommended',
               contentList: trending,
             ),),
