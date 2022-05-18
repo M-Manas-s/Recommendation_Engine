@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:recommendation_engine/screens/screens.dart';
-import '../models/models.dart';
 
 class NavScreen extends StatefulWidget {
   const NavScreen({Key? key}) : super(key: key);
@@ -12,9 +10,7 @@ class NavScreen extends StatefulWidget {
 
 class _NavScreenState extends State<NavScreen> {
   final List<Widget> _screens = [
-    ChangeNotifierProvider<VideoPlayerState>(
-        create: (_) => VideoPlayerState(),
-        child: HomeScreen(key: PageStorageKey('homeScreen'))),
+    HomeScreen(key: PageStorageKey('homeScreen')),
     Scaffold(),
     const Scaffold()
   ];

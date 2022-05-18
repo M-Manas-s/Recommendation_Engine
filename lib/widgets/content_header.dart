@@ -1,5 +1,5 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:recommendation_engine/screens/screens.dart';
 import 'package:video_player/video_player.dart';
 
@@ -19,17 +19,35 @@ class ContentHeader extends StatefulWidget {
 }
 
 class _ContentHeaderState extends State<ContentHeader> {
+  late VideoPlayerController _videoPlayerController;
 
   @override
   void initState() {
     super.initState();
-    Provider.of<VideoPlayerState>(context, listen: false)
-        .init(context, () => setState((){}), widget.featuredContent);
+    _videoPlayerController =
+        VideoPlayerController.asset(widget.featuredContent.videoUrl!)
+          ..initialize().then((_) => setState(() {}))
+          ..addListener(() {
+            if (_videoPlayerController.value.isInitialized &&
+                _videoPlayerController.value.position ==
+                    _videoPlayerController.value.duration &&
+                _videoPlayerController.value.duration != Duration.zero) {
+              setState(() {
+                _videoPlayerController.seekTo(Duration.zero);
+                Timer(const Duration(seconds: 5), () {
+                  setState(() {
+                    _videoPlayerController.play();
+                  });
+                });
+              });
+            }
+          })
+          ..play();
   }
 
   @override
   void dispose() {
-    Provider.of<VideoPlayerState>(context).dispose();
+    _videoPlayerController.dispose();
     super.dispose();
   }
 
@@ -37,23 +55,19 @@ class _ContentHeaderState extends State<ContentHeader> {
   Widget build(BuildContext context) {
     double height = 500;
     bool shadow = true;
+    bool offFocus = false;
+
     return Stack(
       alignment: Alignment.center,
       children: [
-        Provider.of<VideoPlayerState>(context)
-                .isPlaying
+        _videoPlayerController.value.isPlaying && !offFocus
             ? Stack(
                 children: [
                   SizedBox(
                     height: height,
                     child: AspectRatio(
-                        aspectRatio: Provider.of<VideoPlayerState>(context,listen: false)
-                            .videoPlayerController
-                            .value
-                            .aspectRatio,
-                        child: VideoPlayer(
-                            Provider.of<VideoPlayerState>(context, listen: false)
-                                .videoPlayerController)),
+                        aspectRatio: _videoPlayerController.value.aspectRatio,
+                        child: VideoPlayer(_videoPlayerController)),
                   ),
                   Container(
                     height: height,
@@ -89,11 +103,8 @@ class _ContentHeaderState extends State<ContentHeader> {
                   title: 'Info',
                   onTap: () async {
                     setState(() {
-                      Provider.of<VideoPlayerState>(context, listen: false)
-                          .offFocus = true;
-                      Provider.of<VideoPlayerState>(context,listen: false)
-                          .videoPlayerController
-                          .pause();
+                      offFocus = true;
+                      _videoPlayerController.pause();
                     });
                     await Navigator.push(
                       context,
@@ -103,11 +114,8 @@ class _ContentHeaderState extends State<ContentHeader> {
                       ),
                     );
                     setState(() {
-                      Provider.of<VideoPlayerState>(context, listen: false)
-                          .offFocus = false;
-                      Provider.of<VideoPlayerState>(context, listen: false)
-                          .videoPlayerController
-                          .play();
+                      offFocus = false;
+                      _videoPlayerController.play();
                     });
                   }),
             ],
