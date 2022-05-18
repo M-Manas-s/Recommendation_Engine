@@ -1,6 +1,6 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:recommendation_engine/screens/screens.dart';
 import 'package:video_player/video_player.dart';
 
 import '../models/models.dart';
@@ -19,35 +19,17 @@ class ContentHeader extends StatefulWidget {
 }
 
 class _ContentHeaderState extends State<ContentHeader> {
-  late VideoPlayerController _videoPlayerController;
 
   @override
   void initState() {
     super.initState();
-    _videoPlayerController =
-        VideoPlayerController.asset(widget.featuredContent.videoUrl!)
-          ..initialize().then((_) => setState(() {}))
-          ..addListener(() {
-            if (_videoPlayerController.value.isInitialized &&
-                _videoPlayerController.value.position ==
-                    _videoPlayerController.value.duration &&
-                _videoPlayerController.value.duration != Duration.zero) {
-              setState(() {
-                _videoPlayerController.seekTo(Duration.zero);
-                Timer(const Duration(seconds: 5), () {
-                  setState(() {
-                    _videoPlayerController.play();
-                  });
-                });
-              });
-            }
-          })
-          ..play();
+    Provider.of<VideoPlayerState>(context, listen: false)
+        .init(context, () => setState((){}), widget.featuredContent);
   }
 
   @override
   void dispose() {
-    _videoPlayerController.dispose();
+    Provider.of<VideoPlayerState>(context).dispose();
     super.dispose();
   }
 
@@ -58,14 +40,20 @@ class _ContentHeaderState extends State<ContentHeader> {
     return Stack(
       alignment: Alignment.center,
       children: [
-        _videoPlayerController.value.isPlaying
+        Provider.of<VideoPlayerState>(context)
+                .isPlaying
             ? Stack(
                 children: [
                   SizedBox(
                     height: height,
                     child: AspectRatio(
-                        aspectRatio: _videoPlayerController.value.aspectRatio,
-                        child: VideoPlayer(_videoPlayerController)),
+                        aspectRatio: Provider.of<VideoPlayerState>(context,listen: false)
+                            .videoPlayerController
+                            .value
+                            .aspectRatio,
+                        child: VideoPlayer(
+                            Provider.of<VideoPlayerState>(context, listen: false)
+                                .videoPlayerController)),
                   ),
                   Container(
                     height: height,
@@ -95,11 +83,33 @@ class _ContentHeaderState extends State<ContentHeader> {
                   icon: Icons.add,
                   title: 'List',
                   onTap: () => print("My List")),
-              _PlayButton(),
+              const _PlayButton(),
               CustomIconButton(
                   icon: Icons.info_outline,
                   title: 'Info',
-                  onTap: () => print("My List")),
+                  onTap: () async {
+                    setState(() {
+                      Provider.of<VideoPlayerState>(context, listen: false)
+                          .offFocus = true;
+                      Provider.of<VideoPlayerState>(context,listen: false)
+                          .videoPlayerController
+                          .pause();
+                    });
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            ContentInfo(content: widget.featuredContent),
+                      ),
+                    );
+                    setState(() {
+                      Provider.of<VideoPlayerState>(context, listen: false)
+                          .offFocus = false;
+                      Provider.of<VideoPlayerState>(context, listen: false)
+                          .videoPlayerController
+                          .play();
+                    });
+                  }),
             ],
           ),
         )

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../screens/screens.dart';
 import '../widgets/widgets.dart';
 import '../models/models.dart';
 
@@ -48,7 +49,13 @@ class ContentList extends StatelessWidget {
                       width: isOriginals ? 230.0 : 130.0,
                       featuredContent: content,
                       shadow: false,
-                      onTap: () => print(content.name),
+                      onTap: () =>Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              ContentInfo(content: content),
+                        ),
+                      ),
                     ),
                   );
                 }),

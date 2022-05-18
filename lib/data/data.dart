@@ -1,53 +1,66 @@
+import 'package:flutter/material.dart';
+
 import '../assets.dart';
 import '../models/models.dart';
 
-const Content casinoHeistContent = Content(
+Content casinoHeistContent = Content(
     name: 'Casino Heist',
     imageUrl: Assets.casinoHeist,
     videoUrl: Assets.casinoHeistVideo,
-    titleImageUrl: Assets.casinoHeistTitle);
+    titleImageUrl: Assets.casinoHeistTitle,
+    color: Colors.red,
+    rating: 4.7,
+    description: "As a criminal mastermind manipulates the police to carry out his plot, twelve robbers kidnap and lock themselves up in the Royal Casino of Italy. The strategy has a national cost and ends up being an all-out conflict.",
+    tags: [
+      ContentTag(tagName: "Robbery", tagValue: 5.0),
+      ContentTag(tagName: "Alan Mint", tagValue: 5.0),
+      ContentTag(tagName: "Casino", tagValue: 4.0),
+      ContentTag(tagName: "Mastermind", tagValue: 5.0),
+      ContentTag(tagName: "Crime", tagValue: 4.0),
+      ContentTag(tagName: "Guns", tagValue: 1.0),
+    ]);
 
-const Content fishGamesContent = Content(
+Content fishGamesContent = Content(
     name: 'Fish Games',
     imageUrl: Assets.fishGames,
     titleImageUrl: Assets.fishGamesTitle);
 
-const Content hazlockShomesContent = Content(
+Content hazlockShomesContent = Content(
     name: 'Hazlock Shomes',
     imageUrl: Assets.hazlockShomes,
     titleImageUrl: Assets.hazlockShomesTitle);
 
-const Content itComesContent = Content(
+Content itComesContent = Content(
     name: 'It Follows',
     imageUrl: Assets.itFollows,
     titleImageUrl: Assets.itFollowsTitle);
 
-const Content nightMafiaContent = Content(
+Content nightMafiaContent = Content(
     name: 'Night Mafia',
     imageUrl: Assets.nightMafia,
     titleImageUrl: Assets.nightMafiaTitle);
 
-const Content underTheWaterContent = Content(
+Content underTheWaterContent = Content(
     name: 'Under The Water',
     imageUrl: Assets.underTheWater,
     titleImageUrl: Assets.underTheWaterTitle);
 
-const Content whereToContent = Content(
+Content whereToContent = Content(
     name: 'Where To',
     imageUrl: Assets.whereTo,
     titleImageUrl: Assets.whereToTitle);
 
-const List<Content> trending = [
+List<Content> trending = [
   nightMafiaContent,
   whereToContent,
   underTheWaterContent
 ];
 
-const List<Content> myList = [
+List<Content> myList = [
   fishGamesContent,
 ];
 
-const List<Content> originals = [
+List<Content> originals = [
   hazlockShomesContent,
   itComesContent,
   casinoHeistContent
