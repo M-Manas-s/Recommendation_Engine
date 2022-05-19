@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
 
 import '../models/models.dart';
@@ -90,49 +89,11 @@ class _ContentHeaderState extends State<ContentHeader> {
           left: 0,
           right: 0,
           bottom: 40.0,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              CustomIconButton(
-                  icon: Icons.add,
-                  title: 'List',
-                  onTap: () => print("My List")),
-              const _PlayButton(),
-              CustomIconButton(
-                  icon: Icons.info_outline,
-                  title: 'Info',
-                  onTap: () async {
-                    Provider.of<CurrentContentState>(context,listen: false).content = widget.featuredContent;
-                    Provider.of<HomeScreenNavState>(context,listen: false).changeIndex(3);
-                  }),
-            ],
-          ),
+          child: BuildOptions(content: widget.featuredContent, fontSize: 16, iconSize: 25),
         )
       ],
     );
   }
 }
 
-class _PlayButton extends StatelessWidget {
-  const _PlayButton({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton.icon(
-        onPressed: () => print("Play"),
-        icon: const Icon(
-          Icons.play_arrow,
-          size: 30.0,
-          color: Colors.black,
-        ),
-        style: ElevatedButton.styleFrom(primary: Colors.white),
-        label: const Text(
-          "Play",
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 16.0,
-            fontWeight: FontWeight.w600,
-          ),
-        ));
-  }
-}

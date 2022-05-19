@@ -113,45 +113,7 @@ class _ContentInfoState extends State<ContentInfo> {
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        Provider.of<CurrentContentState>(context).content.name,
-                        style: const TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 25),
-                      ),
-                      Row(children: [
-                        const Icon(Icons.star, color: Color(0xfffcf800)),
-                        const SizedBox(
-                          width: 10.0,
-                        ),
-                        Text(
-                          Provider.of<CurrentContentState>(context).content.rating.toString(),
-                          style: const TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 18),
-                        )
-                      ])
-                    ],
-                  ),
-                  const SizedBox(height: 10.0),
-                  Text(
-                    Provider.of<CurrentContentState>(context).content.description!,
-                    textAlign: TextAlign.left,
-                    style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w300,
-                        fontSize: 15),
-                  ),
-                ],
-              ),
+              child: ContentNameRatingDescription(content: Provider.of<CurrentContentState>(context).content,),
             ),
           ),
           SliverToBoxAdapter(

@@ -69,6 +69,7 @@ List<Content> trending = [
 
 List<Content> myList = [
   fishGamesContent,
+  casinoHeistContent
 ];
 
 List<Content> originals = [
