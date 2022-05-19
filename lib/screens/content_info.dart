@@ -7,31 +7,21 @@ import '../widgets/widgets.dart';
 
 class ContentInfo extends StatefulWidget {
 
-  const ContentInfo({Key? key})
-      : super(key: key);
+  const ContentInfo({Key? key}) : super(key: key);
 
   @override
   State<ContentInfo> createState() => _ContentInfoState();
 }
 
 class _ContentInfoState extends State<ContentInfo> {
-  late List<String> featuredTags = [];
-  late Content content;
+  Content content = casinoHeistContent;
   late ScrollController _scrollController;
   double _scrollOffset = 0.0;
 
   @override
   void initState() {
     super.initState();
-    content = Provider.of<HomeScreenNavState>(context,listen: false).content;
 
-    // Sorting the tags based on tagValue, to get important tags
-    // Then that is displayed in the information for that content
-
-    content.tags?.sort((tag1, tag2) => (tag1.tagValue < tag2.tagValue) ? 1 : 0);
-    for (int i = 0; i < 3; i++) {
-      featuredTags.add(content.tags!.elementAt(i).tagName);
-    }
     _scrollController = ScrollController()
       ..addListener(() {
         setState(() {
@@ -64,7 +54,7 @@ class _ContentInfoState extends State<ContentInfo> {
           SliverToBoxAdapter(
             child: Stack(alignment: Alignment.center, children: [
               ContentImageAndTitle(
-                featuredContent: content,
+                featuredContent: Provider.of<CurrentContentState>(context).content,
                 onTap: () {},
                 width: MediaQuery.of(context).size.width,
                 height: 500.0,
@@ -77,15 +67,15 @@ class _ContentInfoState extends State<ContentInfo> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    buildTagDisplay(featuredTags[1]),
+                    buildTagDisplay(Provider.of<CurrentContentState>(context).content.tags![1].tagName),
                     const SizedBox(
                       width: 10.0,
                     ),
-                    buildTagDisplay(featuredTags[0]),
+                    buildTagDisplay(Provider.of<CurrentContentState>(context).content.tags![0].tagName),
                     const SizedBox(
                       width: 10.0,
                     ),
-                    buildTagDisplay(featuredTags[2]),
+                    buildTagDisplay(Provider.of<CurrentContentState>(context).content.tags![2].tagName),
                   ],
                 ),
               ),
@@ -111,7 +101,7 @@ class _ContentInfoState extends State<ContentInfo> {
                   icon: Icon(
                     Icons.play_circle,
                     size: 60.0,
-                    color: content.color,
+                    color: Provider.of<CurrentContentState>(context).content.color,
                   ),
                   onPressed: () {
                     print("Pressed");
@@ -130,7 +120,7 @@ class _ContentInfoState extends State<ContentInfo> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        content.name,
+                        Provider.of<CurrentContentState>(context).content.name,
                         style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w500,
@@ -138,9 +128,11 @@ class _ContentInfoState extends State<ContentInfo> {
                       ),
                       Row(children: [
                         const Icon(Icons.star, color: Color(0xfffcf800)),
-                        const SizedBox(width: 10.0,),
+                        const SizedBox(
+                          width: 10.0,
+                        ),
                         Text(
-                          content.rating.toString(),
+                          Provider.of<CurrentContentState>(context).content.rating.toString(),
                           style: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
@@ -151,7 +143,7 @@ class _ContentInfoState extends State<ContentInfo> {
                   ),
                   const SizedBox(height: 10.0),
                   Text(
-                    content.description!,
+                    Provider.of<CurrentContentState>(context).content.description!,
                     textAlign: TextAlign.left,
                     style: const TextStyle(
                         color: Colors.white,
@@ -164,20 +156,19 @@ class _ContentInfoState extends State<ContentInfo> {
           ),
           SliverToBoxAdapter(
               child: Container(
-                margin: const EdgeInsets.only(top : 30.0),
-                child: ContentList(
-                  key: PageStorageKey(content.name),
+            margin: const EdgeInsets.only(top: 30.0),
+            child: ContentList(
               title: 'Similar',
               contentList: originals,
               isOriginals: false,
             ),
-              )),
+          )),
           SliverToBoxAdapter(
             child: ContentList(
-              key: PageStorageKey(content.name),
               title: 'Recommended',
               contentList: trending,
-            ),),
+            ),
+          ),
         ],
       ),
     );

@@ -74,5 +74,6 @@ List<Content> myList = [
 List<Content> originals = [
   hazlockShomesContent,
   itComesContent,
+  fishGamesContent,
   casinoHeistContent
 ];

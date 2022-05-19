@@ -102,7 +102,7 @@ class _ContentHeaderState extends State<ContentHeader> {
                   icon: Icons.info_outline,
                   title: 'Info',
                   onTap: () async {
-                    Provider.of<HomeScreenNavState>(context,listen: false).content = widget.featuredContent;
+                    Provider.of<CurrentContentState>(context,listen: false).content = widget.featuredContent;
                     Provider.of<HomeScreenNavState>(context,listen: false).changeIndex(3);
                   }),
             ],

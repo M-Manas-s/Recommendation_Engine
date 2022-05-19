@@ -13,7 +13,7 @@ class ContentList extends StatelessWidget {
   const ContentList({Key? key,
     required this.title,
     required this.contentList,
-    this.isOriginals = false})
+    this.isOriginals = false,})
       : super(key: key);
 
   @override
@@ -50,7 +50,8 @@ class ContentList extends StatelessWidget {
                       featuredContent: content,
                       shadow: false,
                       onTap: () {
-                        Provider.of<HomeScreenNavState>(context,listen: false).content = contentList[index];
+                        print(contentList[index].name);
+                        Provider.of<CurrentContentState>(context,listen: false).changeContent(contentList[index]);
                         Provider.of<HomeScreenNavState>(context,listen: false).changeIndex(3);
                       },
                     ),
