@@ -15,7 +15,7 @@ class BottomNavScreen extends StatefulWidget {
 class _BottomNavScreenState extends State<BottomNavScreen> {
   final List<Widget> _screens = [
     HomeTopNavScreen(key: PageStorageKey('homeScreen')),
-    Scaffold(),
+    SearchScreen(),
     const Scaffold()
   ];
 
