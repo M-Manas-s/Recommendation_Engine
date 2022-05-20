@@ -36,7 +36,7 @@ class ContentCard extends StatelessWidget {
                     )),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: BuildOptions(
+                  child: ContentBuildOptions(
                       content: content, iconSize: 15, fontSize: 13),
                 )
               ],

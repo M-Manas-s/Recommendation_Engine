@@ -33,6 +33,7 @@ dependencies:
   video_player: ^2.4.2
   provider: ^6.0.2
   material_floating_search_bar: ^0.3.7
+  syncfusion_flutter_charts: ^20.1.56
 
 dev_dependencies:
   flutter_test:

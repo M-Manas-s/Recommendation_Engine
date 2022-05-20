@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import 'models/models.dart';
 import 'screens/screens.dart';
 
@@ -22,10 +23,12 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       home: MultiProvider(
         providers: [
-          ChangeNotifierProvider<HomeScreenNavState>(
-          create: (_) => HomeScreenNavState()),
+          ChangeNotifierProvider<GlobalNavState>(
+              create: (_) => GlobalNavState()),
           ChangeNotifierProvider<CurrentContentState>(
               create: (_) => CurrentContentState()),
+          ChangeNotifierProvider<UserTagsPreferenceState>(
+              create: (_) => UserTagsPreferenceState()),
         ],
         child: BottomNavScreen(),
       ),

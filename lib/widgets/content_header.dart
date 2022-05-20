@@ -89,7 +89,7 @@ class _ContentHeaderState extends State<ContentHeader> {
           left: 0,
           right: 0,
           bottom: 40.0,
-          child: BuildOptions(content: widget.featuredContent, fontSize: 16, iconSize: 25),
+          child: ContentBuildOptions(content: widget.featuredContent, fontSize: 16, iconSize: 25),
         )
       ],
     );

@@ -13,11 +13,7 @@ class BottomNavScreen extends StatefulWidget {
 }
 
 class _BottomNavScreenState extends State<BottomNavScreen> {
-  final List<Widget> _screens = [
-    HomeTopNavScreen(key: PageStorageKey('homeScreen')),
-    SearchScreen(),
-    const Scaffold()
-  ];
+  late List<Widget> _screens;
 
   final Map<String, IconData> _icons = const {
     'Home': Icons.home,
@@ -25,17 +21,25 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     'Profile': Icons.person
   };
 
-  int _currentIndex = 0;
+  @override
+  void initState() {
+    super.initState();
+    _screens = const [
+      HomeTopNavScreen(key: PageStorageKey('homeScreen')),
+      SearchScreen(),
+      ProfileScreen()
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        Provider.of<HomeScreenNavState>(context, listen: false).changeIndex(0);
+        Provider.of<GlobalNavState>(context, listen: false).changeHomeScreenIndex(0);
         return false;
       },
       child: Scaffold(
-        body: _screens[_currentIndex],
+        body: _screens[Provider.of<GlobalNavState>(context).currentParentScreenIndex],
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.black,
@@ -46,12 +50,12 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
           )))
           .values
           .toList(),
-          currentIndex: _currentIndex,
+          currentIndex: Provider.of<GlobalNavState>(context).currentParentScreenIndex,
           selectedItemColor: Colors.white,
           selectedFontSize: 11.0,
           unselectedItemColor: Colors.grey,
           unselectedFontSize: 11.0,
-          onTap: (index) => setState(() => _currentIndex = index)
+          onTap: (index) => setState(() => Provider.of<GlobalNavState>(context,listen: false).changeParentScreenIndex(index))
         ),
       ),
     );

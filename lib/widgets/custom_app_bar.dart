@@ -30,9 +30,9 @@ class CustomAppBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Image.asset(Assets.appIcon),
-            _AppBarButton(title: "Movies", onTap: () => Provider.of<HomeScreenNavState>(context,listen: false).changeIndex(0)),
-            _AppBarButton(title: "For You", onTap: () =>  Provider.of<HomeScreenNavState>(context,listen: false).changeIndex(1)),
-            _AppBarButton(title: "My List", onTap: () => Provider.of<HomeScreenNavState>(context,listen: false).changeIndex(2)),
+            _AppBarButton(title: "Movies", onTap: () => Provider.of<GlobalNavState>(context,listen: false).changeHomeScreenIndex(0)),
+            _AppBarButton(title: "For You", onTap: () =>  Provider.of<GlobalNavState>(context,listen: false).changeHomeScreenIndex(1)),
+            _AppBarButton(title: "My List", onTap: () => Provider.of<GlobalNavState>(context,listen: false).changeHomeScreenIndex(2)),
           ],
         ),
       ),

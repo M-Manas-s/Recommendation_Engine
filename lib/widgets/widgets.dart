@@ -6,4 +6,4 @@ export 'content_image_and_title.dart';
 export 'horizontal_content_list.dart';
 export 'content_card.dart';
 export 'content_name_rating_description.dart';
-export 'build_options.dart';
+export 'content_build_options.dart';

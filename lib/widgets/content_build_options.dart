@@ -3,12 +3,12 @@ import 'package:provider/provider.dart';
 import '../models/models.dart';
 import 'widgets.dart';
 
-class BuildOptions extends StatelessWidget {
+class ContentBuildOptions extends StatelessWidget {
 
   final Content content;
   final double iconSize;
   final double fontSize;
-  const BuildOptions({
+  const ContentBuildOptions({
     Key? key,
     required this.content, required this.iconSize, required this.fontSize,
   }) : super(key: key);
@@ -34,7 +34,8 @@ class BuildOptions extends StatelessWidget {
             title: 'Info',
             onTap: () async {
               Provider.of<CurrentContentState>(context,listen: false).content = content;
-              Provider.of<HomeScreenNavState>(context,listen: false).changeIndex(3);
+              Provider.of<GlobalNavState>(context,listen: false).changeHomeScreenIndex(3);
+              Provider.of<GlobalNavState>(context,listen: false).changeParentScreenIndex(0);
             }),
       ],
     );

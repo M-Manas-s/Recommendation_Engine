@@ -36,7 +36,7 @@ class _HomeTopNavScreenState extends State<HomeTopNavScreen> {
       onWillPop: () async =>  false,
       child: Scaffold(
         extendBodyBehindAppBar: true,
-        body:_screens[Provider.of<HomeScreenNavState>(context).currentIndex],
+        body:_screens[Provider.of<GlobalNavState>(context).currentHomeScreenIndex],
       ),
     );
   }

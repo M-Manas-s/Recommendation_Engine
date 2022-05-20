@@ -52,7 +52,7 @@ class ContentList extends StatelessWidget {
                       onTap: () {
                         print(contentList[index].name);
                         Provider.of<CurrentContentState>(context,listen: false).changeContent(contentList[index]);
-                        Provider.of<HomeScreenNavState>(context,listen: false).changeIndex(3);
+                        Provider.of<GlobalNavState>(context,listen: false).changeHomeScreenIndex(3);
                       },
                     ),
                   );
