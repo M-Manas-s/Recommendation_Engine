@@ -35,7 +35,15 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        Provider.of<GlobalNavState>(context, listen: false).changeHomeScreenIndex(0);
+        bool k =
+            Provider.of<GlobalNavState>(context, listen: false).playingVideo;
+        if ( k == false) {
+          Provider.of<GlobalNavState>(context, listen: false)
+              .changeHomeScreenIndex(0);
+        } else {
+          Provider.of<GlobalNavState>(context, listen: false)
+              .changePlayingVideo(false);
+        }
         return false;
       },
       child: Scaffold(

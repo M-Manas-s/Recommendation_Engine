@@ -3,7 +3,7 @@ export 'content_header.dart';
 export 'custom_icon_button.dart';
 export 'content_list.dart';
 export 'content_image_and_title.dart';
-export 'horizontal_content_list.dart';
+export 'vertical_content_list.dart';
 export 'content_card.dart';
 export 'content_name_rating_description.dart';
 export 'content_build_options.dart';

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-
 import '../assets.dart';
 import '../models/models.dart';
+
+String dummyVideoUrl =  Assets.dummyVideo;
 
 Content casinoHeistContent = Content(
     name: 'Casino Heist',
@@ -39,7 +40,18 @@ Content fishGamesContent = Content(
 Content hazlockShomesContent = Content(
     name: 'Hazlock Shomes',
     imageUrl: Assets.hazlockShomes,
-    titleImageUrl: Assets.hazlockShomesTitle);
+    titleImageUrl: Assets.hazlockShomesTitle,
+    color: Colors.pink,
+    rating: 4.3,
+    description: "A odd offer to compete in children's games is accepted by a large number of cash-strapped players. A enticing treasure with deadly high stakes awaits you inside. ",
+    tags: [
+      ContentTag(tagName: "Game", tagValue: 5.0),
+      ContentTag(tagName: "Hwang Bong", tagValue: 5.0),
+      ContentTag(tagName: "Trapped", tagValue: 3.0),
+      ContentTag(tagName: "Survivor", tagValue: 5.0),
+      ContentTag(tagName: "Strategy", tagValue: 4.0),
+      ContentTag(tagName: "Guns", tagValue: 2.0),
+    ]);
 
 Content itComesContent = Content(
     name: 'It Follows',
@@ -69,7 +81,8 @@ List<Content> trending = [
 
 List<Content> myList = [
   fishGamesContent,
-  casinoHeistContent
+  casinoHeistContent,
+  hazlockShomesContent
 ];
 
 List<Content> originals = [

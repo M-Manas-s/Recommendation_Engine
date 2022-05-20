@@ -34,6 +34,7 @@ class ContentBuildOptions extends StatelessWidget {
             title: 'Info',
             onTap: () async {
               Provider.of<CurrentContentState>(context,listen: false).content = content;
+              Provider.of<GlobalNavState>(context,listen: false).changePlayingVideo(false);
               Provider.of<GlobalNavState>(context,listen: false).changeHomeScreenIndex(3);
               Provider.of<GlobalNavState>(context,listen: false).changeParentScreenIndex(0);
             }),

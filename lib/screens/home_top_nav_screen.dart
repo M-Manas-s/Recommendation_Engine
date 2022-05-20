@@ -32,12 +32,9 @@ class _HomeTopNavScreenState extends State<HomeTopNavScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async =>  false,
-      child: Scaffold(
-        extendBodyBehindAppBar: true,
-        body:_screens[Provider.of<GlobalNavState>(context).currentHomeScreenIndex],
-      ),
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      body:_screens[Provider.of<GlobalNavState>(context).currentHomeScreenIndex],
     );
   }
 }

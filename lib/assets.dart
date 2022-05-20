@@ -5,6 +5,7 @@ class Assets{
   // App core assets
 
   static const String appIcon = '${_images}app_core/app_icon.png';
+  static const String dummyVideo = '${_videos}app_core/dummy_video.mp4';
 
   // Casino Heist Assets
   static const String casinoHeist = '${_images}casino_heist/casino_heist.jpg';

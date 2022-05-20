@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 class GlobalNavState with ChangeNotifier {
   int _currentHomeScreenIndex = 0;
   int _currentParentScreenIndex = 0;
+  bool _playingVideo = false;
 
   int get currentHomeScreenIndex => _currentHomeScreenIndex;
   int get currentParentScreenIndex => _currentParentScreenIndex;
+  bool get playingVideo => _playingVideo;
 
   void changeHomeScreenIndex(int index) {
     if ( _currentHomeScreenIndex!=index || _currentHomeScreenIndex == 3) {
@@ -20,5 +22,12 @@ class GlobalNavState with ChangeNotifier {
     }
     notifyListeners();
   }
+
+  void changePlayingVideo(bool value)
+  {
+    _playingVideo = value;
+    notifyListeners();
+  }
+
 
 }

@@ -18,7 +18,7 @@ class _ForYouScreenState extends State<ForYouScreen> {
         preferredSize: Size(screenSize.width, 100.0),
         child: const CustomAppBar(),
       ),
-      body: HorizontalContentList(contentList: myList),
+      body: VerticalContentList(contentList: myList),
     );
   }
 }

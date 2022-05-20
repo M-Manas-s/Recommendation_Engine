@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:recommendation_engine/data/data.dart';
-import 'package:recommendation_engine/widgets/horizontal_content_list.dart';
+import 'package:recommendation_engine/widgets/vertical_content_list.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -76,7 +76,7 @@ class _SearchScreenState extends State<SearchScreen> {
       child: SafeArea(
         child: Scaffold(
           body: Padding(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.symmetric(vertical: 10),
             child: FloatingSearchBar(
               controller: controller,
               backgroundColor: Colors.white,
@@ -85,7 +85,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   child: Padding(
                     padding: const EdgeInsets.only(top: 60.0),
                     // child: Text( selectedTerm ?? "Try Searching",style: const TextStyle(color: Colors.white,fontSize: 30),),
-                    child: HorizontalContentList(contentList: myList,),
+                    child: VerticalContentList(contentList: myList,),
                   ),
                 ),
               ),

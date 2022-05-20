@@ -30,7 +30,7 @@ class ContentCard extends StatelessWidget {
                     padding: const EdgeInsets.all(12.0),
                     child: ContentNameRatingDescription(
                       content: content,
-                      titleTextSize: 25,
+                      titleTextSize: 20,
                       descriptionTextSize: 13,
                       ratingSize: 15,
                     )),

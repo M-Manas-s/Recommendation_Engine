@@ -35,7 +35,7 @@ class ContentNameRatingDescription extends StatelessWidget {
             Row(children: [
               const Icon(Icons.star, color: Color(0xfffcf800)),
               const SizedBox(
-                width: 10.0,
+                width: 5.0,
               ),
               Text(
                 content.rating.toString(),

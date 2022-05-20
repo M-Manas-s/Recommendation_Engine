@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:recommendation_engine/screens/play_movie_screen.dart';
 
 import '../data/data.dart';
 import '../models/models.dart';
@@ -14,7 +15,7 @@ class ContentInfo extends StatefulWidget {
 }
 
 class _ContentInfoState extends State<ContentInfo> {
-  Content content = casinoHeistContent;
+  late Content content;
   late ScrollController _scrollController;
   double _scrollOffset = 0.0;
 
@@ -40,7 +41,7 @@ class _ContentInfoState extends State<ContentInfo> {
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
 
-    return Scaffold(
+    return Provider.of<GlobalNavState>(context).playingVideo ? PlayMovieScreen(content: content) : Scaffold(
       extendBodyBehindAppBar: true,
       appBar: PreferredSize(
         preferredSize: Size(screenSize.width, 100.0),
@@ -104,7 +105,14 @@ class _ContentInfoState extends State<ContentInfo> {
                     color: Provider.of<CurrentContentState>(context).content.color,
                   ),
                   onPressed: () {
-                    print("Pressed");
+                    content = Provider.of<CurrentContentState>(context,listen: false).content;
+                    setState((){
+                      Provider.of<GlobalNavState>(context,listen: false).changePlayingVideo(true);
+                    });
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(builder: (context) => PlayMovieScreen(content: content)),
+                    // );
                   },
                 ),
               )
