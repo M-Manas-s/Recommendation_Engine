@@ -8,7 +8,7 @@ class CurrentContentState with ChangeNotifier{
     // Sorting the tags based on tagValue, to get important tags
     // Then that is displayed in the information for that content
 
-    content.tags!.sort((a,b) => (a.tagValue < b.tagValue ? 1 : 0));
+    content.tags.sort((a,b) => (a.tagValue < b.tagValue ? 1 : 0));
   }
 
   void changeContent(Content newContent) {

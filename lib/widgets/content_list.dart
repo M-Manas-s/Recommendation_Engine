@@ -50,9 +50,9 @@ class ContentList extends StatelessWidget {
                       featuredContent: content,
                       shadow: false,
                       onTap: () {
-                        print(contentList[index].name);
                         Provider.of<CurrentContentState>(context,listen: false).changeContent(contentList[index]);
                         Provider.of<GlobalNavState>(context,listen: false).changeHomeScreenIndex(3);
+                        Provider.of<ScrollControllerState>(context,listen: false).resetScroll();
                       },
                     ),
                   );

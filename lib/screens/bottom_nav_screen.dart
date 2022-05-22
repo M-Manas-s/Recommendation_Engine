@@ -44,6 +44,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
           Provider.of<GlobalNavState>(context, listen: false)
               .changePlayingVideo(false);
         }
+        Provider.of<ScrollControllerState>(context,listen: false).hardResetScroll();
         return false;
       },
       child: Scaffold(

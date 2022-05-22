@@ -49,7 +49,7 @@ class ContentNameRatingDescription extends StatelessWidget {
         ),
         const SizedBox(height: 10.0),
         Text(
-          content.description!,
+          content.description,
           textAlign: TextAlign.left,
           style: TextStyle(
               color: Colors.white,

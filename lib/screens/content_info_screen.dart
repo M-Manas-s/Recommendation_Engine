@@ -16,24 +16,23 @@ class ContentInfo extends StatefulWidget {
 
 class _ContentInfoState extends State<ContentInfo> {
   late Content content;
-  late ScrollController _scrollController;
-  double _scrollOffset = 0.0;
+  double _offSet = 0.0;
 
   @override
   void initState() {
     super.initState();
 
-    _scrollController = ScrollController()
+    Provider.of<ScrollControllerState>(context,listen: false).scrollController = ScrollController()
       ..addListener(() {
         setState(() {
-          _scrollOffset = _scrollController.offset;
+          _offSet = Provider.of<ScrollControllerState>(context,listen: false).scrollController.offset;
         });
       });
   }
 
   @override
   void dispose() {
-    _scrollController.dispose();
+    Provider.of<ScrollControllerState>(context,listen: false).scrollController.dispose();
     super.dispose();
   }
 
@@ -46,11 +45,11 @@ class _ContentInfoState extends State<ContentInfo> {
       appBar: PreferredSize(
         preferredSize: Size(screenSize.width, 100.0),
         child: CustomAppBar(
-          scrollOffset: _scrollOffset,
+          scrollOffset: _offSet,
         ),
       ),
       body: CustomScrollView(
-        controller: _scrollController,
+        controller: Provider.of<ScrollControllerState>(context).scrollController,
         slivers: [
           SliverToBoxAdapter(
             child: Stack(alignment: Alignment.center, children: [
@@ -68,15 +67,15 @@ class _ContentInfoState extends State<ContentInfo> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    buildTagDisplay(Provider.of<CurrentContentState>(context).content.tags![1].tagName),
+                    buildTagDisplay(Provider.of<CurrentContentState>(context).content.tags[1].tagName),
                     const SizedBox(
                       width: 10.0,
                     ),
-                    buildTagDisplay(Provider.of<CurrentContentState>(context).content.tags![0].tagName),
+                    buildTagDisplay(Provider.of<CurrentContentState>(context).content.tags[0].tagName),
                     const SizedBox(
                       width: 10.0,
                     ),
-                    buildTagDisplay(Provider.of<CurrentContentState>(context).content.tags![2].tagName),
+                    buildTagDisplay(Provider.of<CurrentContentState>(context).content.tags[2].tagName),
                   ],
                 ),
               ),
@@ -109,10 +108,6 @@ class _ContentInfoState extends State<ContentInfo> {
                     setState((){
                       Provider.of<GlobalNavState>(context,listen: false).changePlayingVideo(true);
                     });
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => PlayMovieScreen(content: content)),
-                    // );
                   },
                 ),
               )

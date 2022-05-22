@@ -63,11 +63,49 @@ flutter:
     - assets/images/casino_heist/
     - assets/images/fish_games/
     - assets/images/hazlock_shomes/
-    - assets/images/it_comes/
+    - assets/images/it_follows/
     - assets/images/night_mafia/
     - assets/images/under_the_water/
     - assets/images/where_to/
     - assets/images/app_core/
+    - assets/images/ghost_ship/
+    - assets/images/independence_night/
+    - assets/images/star_troopers/
+    - assets/images/boult/
+    - assets/images/brave/
+    - assets/images/bravesoul/
+    - assets/images/captain_mathew/
+    - assets/images/cyber_matrix/
+    - assets/images/excalibur/
+    - assets/images/extinction/
+    - assets/images/last_ride/
+    - assets/images/maggie_and_friends/
+    - assets/images/mary_in_wonderland/
+    - assets/images/mister_dynamite/
+    - assets/images/oblivion/
+    - assets/images/onward/
+    - assets/images/prochantus/
+    - assets/images/ramesh_bakshi/
+    - assets/images/rocket_science/
+    - assets/images/saving_private_jones/
+    - assets/images/glory_path/
+    - assets/images/gravity/
+    - assets/images/heart_of_the_sea/
+    - assets/images/hello_jace/
+    - assets/images/hideyoshi_iyeshu/
+    - assets/images/immortal_engines/
+    - assets/images/survivorman/
+    - assets/images/the_alien/
+    - assets/images/the_big_things/
+    - assets/images/the_bright_side/
+    - assets/images/the_forest/
+    - assets/images/the_lion_of_wall_street/
+    - assets/images/the_pirates/
+    - assets/images/the_tenth_gate/
+    - assets/images/the_time_machine/
+    - assets/images/world_war_y/
+    - assets/images/baby_boss/
+    - assets/images/z_for_zecheran/
 
   # videos
     - assets/videos/casino_heist/

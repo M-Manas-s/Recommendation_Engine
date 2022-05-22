@@ -56,7 +56,7 @@ class ContentImageAndTitle extends StatelessWidget {
               bottom: _shadow ? _height * 0.2 : _height * 0.1,
               child: SizedBox(
                 width: _width * 0.8,
-                child: Image.asset(_featuredContent.titleImageUrl!, fit: BoxFit.fitWidth,),
+                child: Image.asset(_featuredContent.titleImageUrl, fit: BoxFit.fitWidth,),
               ),
             ),
           ],

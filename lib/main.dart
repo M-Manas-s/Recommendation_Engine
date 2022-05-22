@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'models/models.dart';
+import 'models/scroll_controller_state.dart';
 import 'screens/screens.dart';
 
 void main() {
@@ -29,6 +30,8 @@ class MyApp extends StatelessWidget {
               create: (_) => CurrentContentState()),
           ChangeNotifierProvider<UserTagsPreferenceState>(
               create: (_) => UserTagsPreferenceState()),
+          ChangeNotifierProvider<ScrollControllerState>(
+              create: (_) => ScrollControllerState()),
         ],
         child: BottomNavScreen(),
       ),

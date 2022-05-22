@@ -4,20 +4,21 @@ import 'models.dart';
 class Content {
   final String name;
   final String imageUrl;
-  final String? titleImageUrl;
+  final String titleImageUrl;
   final String? videoUrl;
-  final String? description;
-  final Color? color;
-  final double? rating;
-  final List<ContentTag>? tags;
+  final String description;
+  final Color color;
+  final double rating;
+  final List<ContentTag> tags;
 
   const Content(
-      {this.tags,
+      {
+        required this.tags,
       required this.name,
       required this.imageUrl,
-      this.titleImageUrl,
+      required this.titleImageUrl,
       this.videoUrl,
-      this.description,
-      this.color,
-      this.rating});
+      required this.description,
+      required this.color,
+      required this.rating});
 }
