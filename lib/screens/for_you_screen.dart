@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../data/data.dart';
+import 'package:provider/provider.dart';
+import 'package:recommendation_engine/models/models.dart';
 import '../widgets/widgets.dart';
 
 class ForYouScreen extends StatefulWidget {
@@ -18,7 +19,7 @@ class _ForYouScreenState extends State<ForYouScreen> {
         preferredSize: Size(screenSize.width, 100.0),
         child: const CustomAppBar(),
       ),
-      body: VerticalContentList(contentList: myList),
+      body: VerticalContentList(contentList: Provider.of<CurrentContentState>(context,listen: false).recommended),
     );
   }
 }

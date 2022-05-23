@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../models/models.dart';
 import 'widgets.dart';
 
@@ -33,10 +34,26 @@ class ContentBuildOptions extends StatelessWidget {
             icon: Icons.info_outline,
             title: 'Info',
             onTap: () async {
-              Provider.of<CurrentContentState>(context,listen: false).content = content;
-              Provider.of<GlobalNavState>(context,listen: false).changePlayingVideo(false);
-              Provider.of<GlobalNavState>(context,listen: false).changeHomeScreenIndex(3);
-              Provider.of<GlobalNavState>(context,listen: false).changeParentScreenIndex(0);
+              Provider
+                  .of<CurrentContentState>(context, listen: false)
+                  .changeContent(
+                      newContent: content,
+                      contentTagMultiplier: 2.0,
+                      generateSimilar: true,
+                      limit: 5,
+                      userTagPreferences: Provider.of<UserTagsPreferenceState>(
+                              context,
+                              listen: false)
+                          .userPrefs,
+                      userPrefMultiplier: 1.0);
+              Provider.of<GlobalNavState>(context, listen: false)
+                  .changeHomeScreenIndex(3);
+              Provider.of<ScrollControllerState>(context, listen: false)
+                  .resetScroll();
+              Provider.of<GlobalNavState>(context, listen: false)
+                  .changePlayingVideo(false);
+              Provider.of<GlobalNavState>(context, listen: false)
+                  .changeParentScreenIndex(0);
             }),
       ],
     );

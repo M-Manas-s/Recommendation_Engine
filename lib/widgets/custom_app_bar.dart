@@ -31,7 +31,20 @@ class CustomAppBar extends StatelessWidget {
           children: [
             Image.asset(Assets.appIcon),
             _AppBarButton(title: "Movies", onTap: () => Provider.of<GlobalNavState>(context,listen: false).changeHomeScreenIndex(0)),
-            _AppBarButton(title: "For You", onTap: () =>  Provider.of<GlobalNavState>(context,listen: false).changeHomeScreenIndex(1)),
+            _AppBarButton(title: "For You", onTap: () {
+              Provider
+                  .of<CurrentContentState>(context, listen: false)
+                  .generatePreferredContent(
+                  recommendedContent: true,
+                  contentTagMultiplier: 0.0,
+                  limit: 5,
+                  userTagPreferences: Provider.of<UserTagsPreferenceState>(
+                      context,
+                      listen: false)
+                      .userPrefs,
+                  userPrefMultiplier: 1.0);
+              Provider.of<GlobalNavState>(context,listen: false).changeHomeScreenIndex(1);
+            },),
             _AppBarButton(title: "My List", onTap: () => Provider.of<GlobalNavState>(context,listen: false).changeHomeScreenIndex(2)),
           ],
         ),

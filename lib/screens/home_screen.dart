@@ -54,12 +54,14 @@ class _HomeScreenState extends State<HomeScreen> {
           SliverToBoxAdapter(
               child: ContentList(
             key: const PageStorageKey('homeScreen'),
+            scrollController: ScrollController(),
             title: 'My List',
             contentList: myList,
           )),
           SliverToBoxAdapter(
               child: ContentList(
             key: const PageStorageKey('homeScreen'),
+                scrollController: ScrollController(),
             title: 'Originals',
             contentList: originals,
             isOriginals: true,
@@ -67,6 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
           SliverToBoxAdapter(
             child: ContentList(
               key: const PageStorageKey('homeScreen'),
+              scrollController: ScrollController(),
               title: 'Trending',
               contentList: trending,
             ),

@@ -349,7 +349,7 @@ Content cyberMatrixContent = Content(
     name: 'Cyber Matrix',
     imageUrl: Assets.cyberMatrix,
     titleImageUrl: Assets.cyberMatrixTitle,
-    color: Colors.red,
+    color: Colors.green,
     rating: 4.4,
     description:
         "When Neo is led to a foreboding underworld by a gorgeous stranger, he discovers the horrifying truth: the life he knows is a complex lie perpetrated by an evil cyber-intelligence.",
@@ -635,7 +635,7 @@ Content helloJaceContent = Content(
     description:
         "Jace, a well-known comedian, is faced with a difficult decision between his friends and his career.",
     tags: [
-      ContentTag(tagName: "Game", tagValue: 5.0),
+      ContentTag(tagName: "Comedy", tagValue: 5.0),
       ContentTag(tagName: "Hwang Bong", tagValue: 5.0),
       ContentTag(tagName: "Trapped", tagValue: 3.0),
       ContentTag(tagName: "Survivor", tagValue: 5.0),
@@ -940,7 +940,9 @@ List<Content> trending = [
 ];
 
 List<Content> watched = [];
-List<Content> myList = [];
+List<Content> myList = [
+      worldWarYContent
+];
 
 List<Content> originals = [
   hazlockShomesContent,

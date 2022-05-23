@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:recommendation_engine/screens/play_movie_screen.dart';
-import 'package:recommendation_engine/services/tag_name_hasher.dart';
-
-import '../data/data.dart';
+import 'package:recommendation_engine/screens/screens.dart';
 import '../models/models.dart';
 import '../widgets/widgets.dart';
 
@@ -22,8 +19,6 @@ class _ContentInfoState extends State<ContentInfo> {
   @override
   void initState() {
     super.initState();
-    TagNameHasher tagNameHasher = TagNameHasher();
-    print("Hash : ${tagNameHasher.hashString("abcdasdafgsdafsf")}");
 
     Provider.of<ScrollControllerState>(context,listen: false).scrollController = ScrollController()
       ..addListener(() {
@@ -35,7 +30,7 @@ class _ContentInfoState extends State<ContentInfo> {
 
   @override
   void dispose() {
-    Provider.of<ScrollControllerState>(context,listen: false).scrollController.dispose();
+    Provider.of<ScrollControllerState>(context,listen: false).disposeControllers();
     super.dispose();
   }
 
@@ -126,15 +121,17 @@ class _ContentInfoState extends State<ContentInfo> {
               child: Container(
             margin: const EdgeInsets.only(top: 30.0),
             child: ContentList(
+              scrollController: Provider.of<ScrollControllerState>(context).similarScrollController,
               title: 'Similar',
-              contentList: originals,
+              contentList: Provider.of<CurrentContentState>(context).similar,
               isOriginals: false,
             ),
           )),
           SliverToBoxAdapter(
             child: ContentList(
+              scrollController: Provider.of<ScrollControllerState>(context).recommendedScrollController,
               title: 'Recommended',
-              contentList: trending,
+              contentList: Provider.of<CurrentContentState>(context).recommended,
             ),
           ),
         ],

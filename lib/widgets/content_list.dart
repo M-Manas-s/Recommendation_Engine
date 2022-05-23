@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../widgets/widgets.dart';
+
 import '../models/models.dart';
+import '../widgets/widgets.dart';
 
 // Builds the horizontal scrollable content area
 
@@ -9,12 +10,15 @@ class ContentList extends StatelessWidget {
   final String title;
   final List<Content> contentList;
   final bool isOriginals;
+  final ScrollController scrollController;
 
-  const ContentList({Key? key,
+  const ContentList({
+    Key? key,
     required this.title,
     required this.contentList,
-    this.isOriginals = false,})
-      : super(key: key);
+    this.isOriginals = false,
+    required this.scrollController,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,23 +40,39 @@ class ContentList extends StatelessWidget {
           Container(
             height: isOriginals ? 500.0 : 220.0,
             child: ListView.builder(
+                controller: scrollController,
                 padding: const EdgeInsets.symmetric(
                     vertical: 12.0, horizontal: 16.0),
                 itemCount: contentList.length,
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context,int index){
+                itemBuilder: (BuildContext context, int index) {
                   final Content content = contentList[index];
                   return Padding(
-                    padding: EdgeInsets.only( right : index != contentList.length ? 10.0 : 0.0),
+                    padding: EdgeInsets.only(
+                        right: index != contentList.length ? 10.0 : 0.0),
                     child: ContentImageAndTitle(
                       height: isOriginals ? 400.0 : 200.0,
                       width: isOriginals ? 230.0 : 130.0,
                       featuredContent: content,
                       shadow: false,
                       onTap: () {
-                        Provider.of<CurrentContentState>(context,listen: false).changeContent(contentList[index]);
-                        Provider.of<GlobalNavState>(context,listen: false).changeHomeScreenIndex(3);
-                        Provider.of<ScrollControllerState>(context,listen: false).resetScroll();
+                        Provider.of<CurrentContentState>(context, listen: false)
+                            .changeContent(
+                                newContent: contentList[index],
+                                contentTagMultiplier: 2.0,
+                                generateSimilar: true,
+                                limit: 5,
+                                userTagPreferences:
+                                    Provider.of<UserTagsPreferenceState>(
+                                            context,
+                                            listen: false)
+                                        .userPrefs,
+                                userPrefMultiplier: 1.0);
+                        Provider.of<GlobalNavState>(context, listen: false)
+                            .changeHomeScreenIndex(3);
+                        Provider.of<ScrollControllerState>(context,
+                                listen: false)
+                            .resetScroll();
                       },
                     ),
                   );

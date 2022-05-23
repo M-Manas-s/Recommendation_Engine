@@ -1,4 +1,5 @@
 import 'dart:collection';
+
 import '../models/models.dart';
 
 // This service will hash Strings as well as Content Tag Names
@@ -6,18 +7,18 @@ import '../models/models.dart';
 
 class TagNameHasher {
 
-  late Map<String,int> hashedValues;
-  late int _limit;                       //  Stores the maximum size of string
-  late int _mod ;                    //  Stores the maximum limit of hash
-  late int _base;                    //  Stores the base for hashing
-  late List<int> _pw;                //  Stores the powers of base from 0 to N
+  late Map<String, int> hashedValues;
+  late int _limit; //  Stores the maximum size of string
+  late int _mod; //  Stores the maximum limit of hash
+  late int _base; //  Stores the base for hashing
+  late List<int> _pw; //  Stores the powers of base from 0 to N
 
   TagNameHasher() {
     hashedValues = SplayTreeMap();
     _limit = 100;
     _mod = 1000000007;
     _base = 33;
-    _pw = List.filled(_limit,0);
+    _pw = List.filled(_limit, 0);
     preCalculate();
   }
 
@@ -75,6 +76,7 @@ class TagNameHasher {
     List<ContentTagHashed> hashedList = [];
     for ( ContentTag contentTag in tagList )
       {
+        // hash the tagName data member
         hashedList.add(ContentTagHashed(tagNameHash: hashString(contentTag.tagName), tagValue: contentTag.tagValue));
       }
     return hashedList;
