@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recommendation_engine/models/content_tag.dart';
 
 class UserTagsPreferenceState with ChangeNotifier {
+
   List<ContentTag> _userTagPrefs = [
     ContentTag(tagName: "Comedy", tagValue: 5.0),
     ContentTag(tagName: "Originals", tagValue: 15.0),

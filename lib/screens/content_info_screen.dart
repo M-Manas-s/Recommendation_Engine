@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recommendation_engine/screens/play_movie_screen.dart';
+import 'package:recommendation_engine/services/tag_name_hasher.dart';
 
 import '../data/data.dart';
 import '../models/models.dart';
@@ -21,6 +22,8 @@ class _ContentInfoState extends State<ContentInfo> {
   @override
   void initState() {
     super.initState();
+    TagNameHasher tagNameHasher = TagNameHasher();
+    print("Hash : ${tagNameHasher.hashString("abcdasdafgsdafsf")}");
 
     Provider.of<ScrollControllerState>(context,listen: false).scrollController = ScrollController()
       ..addListener(() {

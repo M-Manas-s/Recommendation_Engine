@@ -3,5 +3,5 @@ class ContentTag{
   final double tagValue;
   
   ContentTag({required this.tagName,required this.tagValue});
-  
+
 }
