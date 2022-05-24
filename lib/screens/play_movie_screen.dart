@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:recommendation_engine/data/data.dart';
+import 'package:recommendation_engine/models/models.dart';
 import 'package:recommendation_engine/widgets/widgets.dart';
 import 'package:video_player/video_player.dart';
 
@@ -80,7 +82,7 @@ class _PlayMovieScreenState extends State<PlayMovieScreen> {
                   ),
                 ),
                 VerticalContentList(
-                  contentList: myList,
+                  contentList: Provider.of<CurrentContentState>(context).recommended,
                   scrollPhysics: const NeverScrollableScrollPhysics(),
                 )
               ],

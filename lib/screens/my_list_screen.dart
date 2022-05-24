@@ -16,7 +16,9 @@ class _MyListScreenState extends State<MyListScreen> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size(screenSize.width, 100.0),
-        child: const CustomAppBar(),
+        child: const CustomAppBar(
+            key: PageStorageKey('myList')
+        ),
       ),
       body: VerticalContentList(contentList: myList),
     );

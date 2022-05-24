@@ -64,8 +64,15 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
           selectedFontSize: 11.0,
           unselectedItemColor: Colors.grey,
           unselectedFontSize: 11.0,
-          onTap: (index) => setState(() => Provider.of<GlobalNavState>(context,listen: false).changeParentScreenIndex(index))
-        ),
+          onTap: (index) {
+              setState(() {
+                Provider.of<GlobalNavState>(context, listen: false)
+                    .changeParentScreenIndex(index);
+                if ( index != 0 ) {
+                  Provider.of<ScrollControllerState>(context,listen: false).hardResetScroll();
+                }
+              });
+            }),
       ),
     );
   }

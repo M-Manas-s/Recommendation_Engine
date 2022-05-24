@@ -22,20 +22,39 @@ class ContentBuildOptions extends StatelessWidget {
       children: [
         CustomIconButton(
           iconSize: iconSize,
-            fontSize: fontSize,
-            icon: Icons.add,
-            title: 'List',
-            onTap: () => print("My List"),
+          fontSize: fontSize,
+          icon: Icons.add,
+          title: 'List',
+          onTap: () => print("My List"),
         ),
-        PlayButton(playFunction: (){},iconSize: iconSize + 10,fontSize: fontSize,),
+        PlayButton(
+          playFunction: () {
+            Provider.of<CurrentContentState>(context, listen: false)
+                .changeContent(
+                newContent: content,
+                contentTagMultiplier: 2.0,
+                generateSimilar: false,
+                limit: 5,
+                userTagPreferences: Provider.of<UserTagsPreferenceState>(
+                    context,
+                    listen: false)
+                    .userPrefs,
+                userPrefMultiplier: 1.0);
+            Provider.of<GlobalNavState>(context,listen: false).changePlayingVideo(true);
+            Provider.of<GlobalNavState>(context, listen: false).changeParentScreenIndex(0);
+            Provider.of<GlobalNavState>(context, listen: false).changeHomeScreenIndex(3);
+            Provider.of<ScrollControllerState>(context, listen: false).resetScroll();
+          },
+          iconSize: iconSize + 10,
+          fontSize: fontSize,
+        ),
         CustomIconButton(
             iconSize: iconSize,
             fontSize: fontSize,
             icon: Icons.info_outline,
             title: 'Info',
             onTap: () async {
-              Provider
-                  .of<CurrentContentState>(context, listen: false)
+              Provider.of<CurrentContentState>(context, listen: false)
                   .changeContent(
                       newContent: content,
                       contentTagMultiplier: 2.0,

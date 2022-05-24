@@ -17,7 +17,9 @@ class _ForYouScreenState extends State<ForYouScreen> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size(screenSize.width, 100.0),
-        child: const CustomAppBar(),
+        child: const CustomAppBar(
+            key: PageStorageKey('forYou')
+        ),
       ),
       body: VerticalContentList(contentList: Provider.of<CurrentContentState>(context,listen: false).recommended),
     );

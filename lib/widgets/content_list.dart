@@ -37,7 +37,7 @@ class ContentList extends StatelessWidget {
                   fontWeight: FontWeight.bold),
             ),
           ),
-          Container(
+          SizedBox(
             height: isOriginals ? 500.0 : 220.0,
             child: ListView.builder(
                 controller: scrollController,

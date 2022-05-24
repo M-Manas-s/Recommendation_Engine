@@ -25,7 +25,7 @@ class _HomeTopNavScreenState extends State<HomeTopNavScreen> {
       const HomeScreen(key: PageStorageKey('homeScreen'),),
       const ForYouScreen(),
       const MyListScreen(),
-      const ContentInfo()
+      const ContentInfo(key: PageStorageKey('infoScreen'))
     ];
     super.initState();
   }

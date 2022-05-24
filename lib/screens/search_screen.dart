@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
-import 'package:recommendation_engine/data/data.dart';
+import 'package:provider/provider.dart';
+import 'package:recommendation_engine/models/models.dart';
+import 'package:recommendation_engine/services/services.dart';
 import 'package:recommendation_engine/widgets/vertical_content_list.dart';
+
+import '../models/current_content_state.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -15,6 +19,7 @@ class _SearchScreenState extends State<SearchScreen> {
   List<String> _searchHistory = ["aaa", 'aab', 'abc', 'ab', 'b'];
   late List<String> _filteredSearchHistory;
   String? selectedTerm;
+  bool _searched = false;
 
   List<String> filterSearchTerms(String? filter) {
     if (filter != null && filter.isNotEmpty) {
@@ -80,17 +85,13 @@ class _SearchScreenState extends State<SearchScreen> {
             child: FloatingSearchBar(
               controller: controller,
               backgroundColor: Colors.white,
-              body: FloatingSearchBarScrollNotifier(
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 60.0),
-                    // child: Text( selectedTerm ?? "Try Searching",style: const TextStyle(color: Colors.white,fontSize: 30),),
-                    child: VerticalContentList(contentList: myList,),
-                  ),
-                ),
+              body: Padding(
+                padding: const EdgeInsets.only(top: 60.0),
+                child: !_searched ? const Center(child: Text("Search something!",style: TextStyle(color: Colors.white,fontSize: 30),))
+                : VerticalContentList(contentList: Provider.of<CurrentContentState>(context).recommended,),
               ),
               transition: CircularFloatingSearchBarTransition(),
-              physics: const BouncingScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               title: Text(selectedTerm ?? 'Search Movies',
                   style: const TextStyle(color: Colors.black, fontSize: 17)),
               hint: 'Comedy Movies',
@@ -101,9 +102,19 @@ class _SearchScreenState extends State<SearchScreen> {
                 });
               },
               onSubmitted: (query) {
+                List<ContentTag> searchList = KeywordsToContentTag().getContentList(query);
+                Provider
+                    .of<CurrentContentState>(context, listen: false)
+                    .generatePreferredContent(
+                    recommendedContent: true,
+                    contentTagMultiplier: 0.0,
+                    limit: 5,
+                    userTagPreferences: searchList,
+                    userPrefMultiplier: 1.0);
                 setState(() {
                   addSearchTerm(query);
                   selectedTerm = query;
+                  _searched = true;
                 });
                 controller.close();
               },

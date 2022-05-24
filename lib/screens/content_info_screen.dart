@@ -6,7 +6,7 @@ import '../widgets/widgets.dart';
 
 class ContentInfo extends StatefulWidget {
 
-  const ContentInfo({Key? key}) : super(key: key);
+  const ContentInfo({required Key key}) : super(key: key);
 
   @override
   State<ContentInfo> createState() => _ContentInfoState();
@@ -19,10 +19,10 @@ class _ContentInfoState extends State<ContentInfo> {
   @override
   void initState() {
     super.initState();
-
+    content =  Provider.of<CurrentContentState>(context,listen: false).content;
     Provider.of<ScrollControllerState>(context,listen: false).scrollController = ScrollController()
       ..addListener(() {
-        setState(() {
+          setState(() {
           _offSet = Provider.of<ScrollControllerState>(context,listen: false).scrollController.offset;
         });
       });
@@ -43,6 +43,7 @@ class _ContentInfoState extends State<ContentInfo> {
       appBar: PreferredSize(
         preferredSize: Size(screenSize.width, 100.0),
         child: CustomAppBar(
+          key: const PageStorageKey('infoPage'),
           scrollOffset: _offSet,
         ),
       ),

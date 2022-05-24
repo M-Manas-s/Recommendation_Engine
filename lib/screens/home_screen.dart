@@ -42,6 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: PreferredSize(
       preferredSize: Size(screenSize.width, 100.0),
       child: CustomAppBar(
+        key: const PageStorageKey('homeScreen'),
         scrollOffset: _scrollOffset,
       ),
     ),

@@ -8,7 +8,7 @@ class CustomAppBar extends StatelessWidget {
 
   final double scrollOffset;
 
-  const CustomAppBar({Key? key, this.scrollOffset = 0.0}) : super(key: key);
+  const CustomAppBar({required Key key, this.scrollOffset = 0.0}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class CustomAppBar extends StatelessWidget {
       // Clamp the opacity between 0 and 1
       // based on the scrolling pixels
       // That means - scrolling 350 pixels will render the Opacity as 1
-
+      key: key,
       color: Colors.black.withOpacity((scrollOffset/350).clamp(0,1).toDouble()),
 
       child: SafeArea(
