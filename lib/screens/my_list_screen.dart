@@ -30,7 +30,7 @@ class _MyListScreenState extends State<MyListScreen> {
             : const Center(
                 child: Text(
                 "Add something here!",
-                style: TextStyle(color: Colors.white, fontSize: 30),
+                style: TextStyle(color: Colors.white, fontSize: 25),
               )));
   }
 }

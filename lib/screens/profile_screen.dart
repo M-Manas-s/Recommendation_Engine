@@ -45,8 +45,18 @@ class ProfileScreen extends StatelessWidget {
                   width: size.width,
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(primary: Colors.white),
-                      onPressed: () => Provider.of<UserDataState>(context,listen: false)
-                          .resetData(),
+                      onPressed: () {
+                        Provider.of<UserDataState>(context, listen: false)
+                            .resetData();
+                        Provider.of<CurrentContentState>(context, listen: false)
+                            .generatePreferredContent(
+                            context: context,
+                            recommendedContent: true,
+                            limit: 5,
+                            contentTagMultiplier: 0.0,
+                            userPrefMultiplier: 1.0,
+                            userTagPreferences: Provider.of<UserDataState>(context, listen: false).userPrefs);
+                      },
                       child: const Text(
                         "Reset Data",
                         style: TextStyle(color: Colors.black, fontSize: 17),

@@ -47,6 +47,10 @@ class _PlayMovieScreenState extends State<PlayMovieScreen> {
         _videoPlayerController.value.position.inMilliseconds /
             _videoPlayerController.value.duration.inMilliseconds;
     Provider.of<UserDataState>(context,listen: false).updateTagPreference(widget.content.tags, totalCycles);
+    if ( cycles > 1.0 )
+      {
+        Provider.of<UserDataState>(context,listen: false).watched.add(widget.content);
+      }
     _videoPlayerController.dispose();
     super.dispose();
   }

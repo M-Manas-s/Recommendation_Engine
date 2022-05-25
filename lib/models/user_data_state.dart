@@ -35,6 +35,9 @@ class UserDataState with ChangeNotifier {
 
   void resetData() {
     _userTagPrefs.clear();
+    watched.clear();
+    visited.clear();
+    myList.clear();
     _userTagPrefs.add(ContentTag(tagName: country, tagValue: 3.0));
     notifyListeners();
   }

@@ -169,7 +169,6 @@ class CurrentContentState with ChangeNotifier {
     if ( movieScreen ) {
       watchContent(newContent: content,context: context, limit: limit);
     }
-
     notifyListeners();
   }
 }

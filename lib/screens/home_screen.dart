@@ -57,13 +57,6 @@ class _HomeScreenState extends State<HomeScreen> {
           SliverToBoxAdapter(
               child: ContentList(
             key: const PageStorageKey('homeScreen'),
-            scrollController: ScrollController(),
-            title: 'My List',
-            contentList: Provider.of<UserDataState>(context).myList,
-          )),
-          SliverToBoxAdapter(
-              child: ContentList(
-            key: const PageStorageKey('homeScreen'),
                 scrollController: ScrollController(),
             title: 'Originals',
             contentList: originals,
@@ -77,6 +70,17 @@ class _HomeScreenState extends State<HomeScreen> {
               contentList: trending,
             ),
           ),
+          Provider.of<UserDataState>(context).myList.isNotEmpty
+              ? SliverToBoxAdapter(
+                  child: ContentList(
+                  key: const PageStorageKey('homeScreen'),
+                  scrollController: ScrollController(),
+                  title: 'My List',
+                  contentList: Provider.of<UserDataState>(context).myList,
+                ))
+              : SliverToBoxAdapter(
+                  child: Container(),
+                ),
         ],
       ),
     );
