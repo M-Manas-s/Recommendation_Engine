@@ -34,9 +34,11 @@ class _ContentHeaderState extends State<ContentHeader> {
               setState(() {
                 _videoPlayerController.seekTo(Duration.zero);
                 Timer(const Duration(seconds: 5), () {
-                  setState(() {
+                  if ( mounted ) {
+                    setState(() {
                     _videoPlayerController.play();
                   });
+                  }
                 });
               });
             }

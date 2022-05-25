@@ -6,7 +6,6 @@ import 'models/scroll_controller_state.dart';
 import 'screens/screens.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 

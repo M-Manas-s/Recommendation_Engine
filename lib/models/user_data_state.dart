@@ -44,6 +44,10 @@ class UserDataState with ChangeNotifier {
 
   void updateTagPreference(List<ContentTag> contentTags, double multiplier) {
 
+    // Uncomment this to see where and by what factor the tags are being manipulated
+
+    print("Updating Current Content Tags by a multiplier of $multiplier");
+
     for (ContentTag contentTag in contentTags) {
       contentTag = ContentTag(
           tagName: contentTag.tagName,
@@ -56,10 +60,12 @@ class UserDataState with ChangeNotifier {
             .removeWhere((element) => element.tagName == contentTag.tagName);
         contentTag = contentTag.add(val);
         _userTagPrefs.add(contentTag);
-        print("value of ${contentTag.tagName} is now ${contentTag.tagValue}");
       } else {
         _userTagPrefs.add(contentTag);
       }
     }
+
+    _userTagPrefs.removeWhere((element) => element.tagValue == 0);
+
   }
 }

@@ -16,22 +16,28 @@ class ContentInfo extends StatefulWidget {
 class _ContentInfoState extends State<ContentInfo> {
   late Content content;
   double _offSet = 0.0;
+  late ScrollControllerState scrollControllerState;
 
   @override
   void initState() {
     super.initState();
+    scrollControllerState = Provider.of<ScrollControllerState>(context,listen: false);
     content =  Provider.of<CurrentContentState>(context,listen: false).content;
-    Provider.of<ScrollControllerState>(context,listen: false).scrollController = ScrollController()
+    scrollControllerState.scrollController = ScrollController()
       ..addListener(() {
+        if (mounted) {
           setState(() {
           _offSet = Provider.of<ScrollControllerState>(context,listen: false).scrollController.offset;
         });
+        }
       });
+    scrollControllerState.similarScrollController = ScrollController();
+    scrollControllerState.recommendedScrollController = ScrollController();
   }
 
   @override
   void dispose() {
-    Provider.of<ScrollControllerState>(context,listen: false).disposeControllers();
+    scrollControllerState.disposeControllers();
     super.dispose();
   }
 
@@ -49,7 +55,7 @@ class _ContentInfoState extends State<ContentInfo> {
         ),
       ),
       body: CustomScrollView(
-        controller: Provider.of<ScrollControllerState>(context).scrollController,
+        controller: scrollControllerState.scrollController,
         slivers: [
           SliverToBoxAdapter(
             child: Stack(alignment: Alignment.center, children: [
@@ -140,7 +146,7 @@ class _ContentInfoState extends State<ContentInfo> {
               child: Container(
             margin: const EdgeInsets.only(top: 30.0),
             child: ContentList(
-              scrollController: Provider.of<ScrollControllerState>(context).similarScrollController,
+              scrollController: scrollControllerState.similarScrollController,
               title: 'Similar',
               contentList: Provider.of<CurrentContentState>(context).similar,
               isOriginals: false,
@@ -148,7 +154,7 @@ class _ContentInfoState extends State<ContentInfo> {
           )),
           SliverToBoxAdapter(
             child: ContentList(
-              scrollController: Provider.of<ScrollControllerState>(context).recommendedScrollController,
+              scrollController: scrollControllerState.recommendedScrollController,
               title: 'Recommended',
               contentList: Provider.of<CurrentContentState>(context).recommended,
             ),

@@ -59,10 +59,12 @@ class CurrentContentState with ChangeNotifier {
       sortedMap.removeWhere((key, value) => value == 0.0);
     }
 
+    // Uncomment this to see the recommendations being generated
+
+    // print("${recommendedContent ? "Recommended" : "Similar"}: ");
+    // sortedMap.forEach((key, value) => print("Name: ${allContent[key].name}, Score : $value"));
+
     // Now take top [limit] contents for preferred content
-    print("${sortedMap.length}");
-    print("${recommendedContent ? "Recommended" : "Similar"}: ");
-    sortedMap.forEach((key, value) => print("Name: ${allContent[key].name}, Score : $value"));
 
     for (int index in sortedMap.keys) {
       if ( Provider.of<UserDataState>(context,listen: false).watched.contains(allContent[index]) ) {

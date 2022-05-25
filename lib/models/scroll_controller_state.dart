@@ -8,9 +8,15 @@ class ScrollControllerState with ChangeNotifier{
 
   void resetScroll()
   {
-    scrollController.animateTo(0.0, duration: const Duration(milliseconds: 200), curve: Curves.linear);
-    similarScrollController.animateTo(0.0, duration: const Duration(milliseconds: 100), curve: Curves.linear);
-    recommendedScrollController.animateTo(0.0, duration: const Duration(milliseconds: 100), curve: Curves.linear);
+    if ( scrollController.hasClients ) {
+      scrollController.animateTo(0.0, duration: const Duration(milliseconds: 200), curve: Curves.linear);
+    }
+    if ( similarScrollController.hasClients ) {
+      similarScrollController.animateTo(0.0, duration: const Duration(milliseconds: 100), curve: Curves.linear);
+    }
+    if ( recommendedScrollController.hasClients ) {
+      recommendedScrollController.animateTo(0.0, duration: const Duration(milliseconds: 100), curve: Curves.linear);
+    }
     notifyListeners();
   }
 
@@ -27,7 +33,6 @@ class ScrollControllerState with ChangeNotifier{
     scrollController.dispose();
     similarScrollController.dispose();
     recommendedScrollController.dispose();
-    notifyListeners();
   }
 
 }
