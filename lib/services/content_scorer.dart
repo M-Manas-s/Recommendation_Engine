@@ -10,22 +10,23 @@ class ContentScorer{
   final double contentTagMultiplier; // Weightage of the Content in ranking
   final double userPrefMultiplier; // Weightage of User Preferences in ranking
   final List<ContentTag> userTagPreferences;
+  final List<Content> watched;
   late TagNameHasher _tagNameHasher;
   late Map<int, double> _preferences;
 
-  ContentScorer(
-      {required this.focusContent,
-      required this.contentTagMultiplier,
-      required this.userPrefMultiplier,
-      required this.userTagPreferences}) {
+  ContentScorer({
+    required this.watched,
+    required this.focusContent,
+    required this.contentTagMultiplier,
+    required this.userPrefMultiplier,
+    required this.userTagPreferences,
+  }) {
     _tagNameHasher = TagNameHasher();
     _preferences = SplayTreeMap();
     buildPreferencesScore(); // builds the preferences that has to be used for ranking
   }
 
-  void buildPreferencesScore()
-  {
-
+  void buildPreferencesScore() {
     // Here we are combining the preferences of current point of interest (content) and
     // user's personal preferences
 
@@ -34,7 +35,7 @@ class ContentScorer{
     // of user's personal preferences
 
     // Personal preferences are based on what contents the user has watched
-    // They are stored in [user_tag_state.dart]
+    // They are stored in [user_data_state.dart]
 
     // This can be useful for searching movies => in this case userPrefMultiplier = 0, or
     // Recommending content while it is the point of interest, where

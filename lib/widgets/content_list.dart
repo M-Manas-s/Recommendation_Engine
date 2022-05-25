@@ -63,11 +63,12 @@ class ContentList extends StatelessWidget {
                                 generateSimilar: true,
                                 limit: 5,
                                 userTagPreferences:
-                                    Provider.of<UserTagsPreferenceState>(
+                                    Provider.of<UserDataState>(
                                             context,
                                             listen: false)
                                         .userPrefs,
-                                userPrefMultiplier: 1.0);
+                                userPrefMultiplier: 1.0,
+                                context: context);
                         Provider.of<GlobalNavState>(context, listen: false)
                             .changeHomeScreenIndex(3);
                         Provider.of<ScrollControllerState>(context,

@@ -534,10 +534,10 @@ Content rameshBakshiContent = Content(
         "Ramesh Bakshi has retired from active duty. When Vyom, an old buddy from the CBI, shows up seeking for assistance, Bakshi finds himself on the trail of a mysterious villain equipped with terrifying new technology.",
     tags: [
       ContentTag(tagName: "Game", tagValue: 5.0),
-      ContentTag(tagName: "Hwang Bong", tagValue: 5.0),
-      ContentTag(tagName: "Trapped", tagValue: 3.0),
-      ContentTag(tagName: "Survivor", tagValue: 5.0),
-      ContentTag(tagName: "Strategy", tagValue: 4.0),
+      ContentTag(tagName: "India", tagValue: 5.0),
+      ContentTag(tagName: "Detective", tagValue: 3.0),
+      ContentTag(tagName: "Murder", tagValue: 5.0),
+      ContentTag(tagName: "Crime", tagValue: 4.0),
       ContentTag(tagName: "Guns", tagValue: 2.0),
     ]);
 
@@ -939,10 +939,6 @@ List<Content> trending = [
   gloryPathContent
 ];
 
-List<Content> watched = [];
-List<Content> myList = [
-      worldWarYContent
-];
 
 List<Content> originals = [
   hazlockShomesContent,

@@ -35,14 +35,15 @@ class CustomAppBar extends StatelessWidget {
               Provider
                   .of<CurrentContentState>(context, listen: false)
                   .generatePreferredContent(
-                  recommendedContent: true,
-                  contentTagMultiplier: 0.0,
-                  limit: 5,
-                  userTagPreferences: Provider.of<UserTagsPreferenceState>(
-                      context,
-                      listen: false)
-                      .userPrefs,
-                  userPrefMultiplier: 1.0);
+                  context: context,
+                        recommendedContent: true,
+                        contentTagMultiplier: 0.0,
+                        limit: 5,
+                        userTagPreferences:
+                            Provider.of<UserDataState>(context,
+                                    listen: false)
+                                .userPrefs,
+                        userPrefMultiplier: 1.0);
               Provider.of<GlobalNavState>(context,listen: false).changeHomeScreenIndex(1);
             },),
             _AppBarButton(title: "My List", onTap: () => Provider.of<GlobalNavState>(context,listen: false).changeHomeScreenIndex(2)),

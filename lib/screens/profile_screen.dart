@@ -31,7 +31,7 @@ class ProfileScreen extends StatelessWidget {
                   tooltipBehavior: TooltipBehavior(enable: true),
                   series: <CircularSeries>[
                     PieSeries<ContentTag, String>(
-                      dataSource: Provider.of<UserTagsPreferenceState>(context)
+                      dataSource: Provider.of<UserDataState>(context)
                           .userPrefs,
                       xValueMapper: (ContentTag data, _) => data.tagName,
                       yValueMapper: (ContentTag data, _) => data.tagValue,
@@ -45,7 +45,7 @@ class ProfileScreen extends StatelessWidget {
                   width: size.width,
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(primary: Colors.white),
-                      onPressed: () => Provider.of<UserTagsPreferenceState>(context,listen: false)
+                      onPressed: () => Provider.of<UserDataState>(context,listen: false)
                           .resetData(),
                       child: const Text(
                         "Reset Data",

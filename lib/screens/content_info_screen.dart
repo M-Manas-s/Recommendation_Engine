@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recommendation_engine/screens/screens.dart';
+
 import '../models/models.dart';
 import '../widgets/widgets.dart';
 
@@ -103,11 +104,28 @@ class _ContentInfoState extends State<ContentInfo> {
                     color: Provider.of<CurrentContentState>(context).content.color,
                   ),
                   onPressed: () {
-                    content = Provider.of<CurrentContentState>(context,listen: false).content;
-                    setState((){
-                      Provider.of<GlobalNavState>(context,listen: false).changePlayingVideo(true);
-                    });
-                  },
+                    content = Provider.of<CurrentContentState>(context,
+                                  listen: false)
+                              .content;
+                          Provider.of<CurrentContentState>(context,
+                                  listen: false)
+                              .changeContent(
+                                  newContent: content,
+                                  generateSimilar: true,
+                                  limit: 10,
+                                  contentTagMultiplier: 1.0,
+                                  userPrefMultiplier: 1.0,
+                                  userTagPreferences:
+                                      Provider.of<UserDataState>(
+                                              context,
+                                              listen: false)
+                                          .userPrefs,
+                                  context: context);
+                          setState(() {
+                            Provider.of<GlobalNavState>(context, listen: false)
+                                .changePlayingVideo(true);
+                          });
+                        },
                 ),
               )
             ]),

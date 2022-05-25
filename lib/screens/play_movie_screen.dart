@@ -18,22 +18,35 @@ class PlayMovieScreen extends StatefulWidget {
 
 class _PlayMovieScreenState extends State<PlayMovieScreen> {
   late VideoPlayerController _videoPlayerController;
+  int cycles = 0;
 
   @override
   void initState() {
-    _videoPlayerController = VideoPlayerController.asset(dummyVideoUrl)
-      ..initialize().then((_) => setState(() {}))
-      ..addListener(() {
-        setState(() {});
-      })
-      ..setVolume(0.0)
-      ..play();
-
     super.initState();
+    _videoPlayerController = VideoPlayerController.asset(dummyVideoUrl)
+      ..initialize().then((_) => setState(() {}));
+
+    if (mounted) {
+      _videoPlayerController
+        ..addListener(() {
+          setState(() {});
+          if (_videoPlayerController.value.isInitialized &&
+              _videoPlayerController.value.position ==
+                  _videoPlayerController.value.duration) {
+            cycles++;
+          }
+        })
+        ..setVolume(0.0)
+        ..play();
+    }
   }
 
   @override
   void dispose() {
+    double totalCycles = cycles * 1.0 +
+        _videoPlayerController.value.position.inMilliseconds /
+            _videoPlayerController.value.duration.inMilliseconds;
+    Provider.of<UserDataState>(context,listen: false).updateTagPreference(widget.content.tags, totalCycles);
     _videoPlayerController.dispose();
     super.dispose();
   }
@@ -82,7 +95,7 @@ class _PlayMovieScreenState extends State<PlayMovieScreen> {
                   ),
                 ),
                 VerticalContentList(
-                  contentList: Provider.of<CurrentContentState>(context).recommended,
+                  contentList: Provider.of<CurrentContentState>(context,listen: false).recommended,
                   scrollPhysics: const NeverScrollableScrollPhysics(),
                 )
               ],

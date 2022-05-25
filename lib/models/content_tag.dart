@@ -4,4 +4,9 @@ class ContentTag{
   
   ContentTag({required this.tagName,required this.tagValue});
 
+  ContentTag add(double val)
+  {
+    return ContentTag(tagName: tagName,tagValue: tagValue+val);
+  }
+
 }

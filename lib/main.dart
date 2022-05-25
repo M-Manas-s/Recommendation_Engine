@@ -28,8 +28,8 @@ class MyApp extends StatelessWidget {
               create: (_) => GlobalNavState()),
           ChangeNotifierProvider<CurrentContentState>(
               create: (_) => CurrentContentState()),
-          ChangeNotifierProvider<UserTagsPreferenceState>(
-              create: (_) => UserTagsPreferenceState()),
+          ChangeNotifierProvider<UserDataState>(
+              create: (_) => UserDataState()),
           ChangeNotifierProvider<ScrollControllerState>(
               create: (_) => ScrollControllerState()),
         ],

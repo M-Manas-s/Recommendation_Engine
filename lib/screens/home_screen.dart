@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:recommendation_engine/models/user_data_state.dart';
 import 'package:recommendation_engine/widgets/widgets.dart';
 
 import '../data/data.dart';
@@ -57,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
             key: const PageStorageKey('homeScreen'),
             scrollController: ScrollController(),
             title: 'My List',
-            contentList: myList,
+            contentList: Provider.of<UserDataState>(context).myList,
           )),
           SliverToBoxAdapter(
               child: ContentList(

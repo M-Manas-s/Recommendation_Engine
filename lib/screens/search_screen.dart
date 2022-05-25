@@ -106,6 +106,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 Provider
                     .of<CurrentContentState>(context, listen: false)
                     .generatePreferredContent(
+                  context: context,
                     recommendedContent: true,
                     contentTagMultiplier: 0.0,
                     limit: 5,
