@@ -5,8 +5,6 @@ import 'package:recommendation_engine/models/models.dart';
 import 'package:recommendation_engine/services/services.dart';
 import 'package:recommendation_engine/widgets/vertical_content_list.dart';
 
-import '../models/current_content_state.dart';
-
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
 
@@ -16,7 +14,7 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   static const historyLength = 5;
-  List<String> _searchHistory = ["aaa", 'aab', 'abc', 'ab', 'b'];
+  final List<String> _searchHistory = [];
   late List<String> _filteredSearchHistory;
   String? selectedTerm;
   bool _searched = false;
@@ -109,7 +107,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   context: context,
                     recommendedContent: true,
                     contentTagMultiplier: 0.0,
-                    limit: 5,
+                    limit: 20,
                     userTagPreferences: searchList,
                     userPrefMultiplier: 1.0);
                 setState(() {

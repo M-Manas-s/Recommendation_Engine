@@ -75,7 +75,7 @@ class ContentBuildOptions extends StatelessWidget {
                     newContent: content,
                     contentTagMultiplier: 2.0,
                     generateSimilar: true,
-                    limit: 5,
+                    limit: 20,
                     userTagPreferences: Provider.of<UserDataState>(
                             context,
                             listen: false)
@@ -105,7 +105,7 @@ class ContentBuildOptions extends StatelessWidget {
                       newContent: content,
                       contentTagMultiplier: 2.0,
                       generateSimilar: true,
-                      limit: 5,
+                      limit: 20,
                       userTagPreferences: Provider.of<UserDataState>(
                               context,
                               listen: false)

@@ -29,7 +29,7 @@ class ContentImageAndTitle extends StatelessWidget {
 
     return GestureDetector(
       onTap: () => _onTap(),
-      child: Container(
+      child: SizedBox(
         height: _height,
         width: _width,
         child: Stack(

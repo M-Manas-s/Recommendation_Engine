@@ -52,7 +52,7 @@ class ProfileScreen extends StatelessWidget {
                             .generatePreferredContent(
                             context: context,
                             recommendedContent: true,
-                            limit: 5,
+                            limit: 20,
                             contentTagMultiplier: 0.0,
                             userPrefMultiplier: 1.0,
                             userTagPreferences: Provider.of<UserDataState>(context, listen: false).userPrefs);

@@ -61,7 +61,7 @@ class ContentList extends StatelessWidget {
                                 newContent: contentList[index],
                                 contentTagMultiplier: 2.0,
                                 generateSimilar: true,
-                                limit: 5,
+                                limit: 20,
                                 userTagPreferences:
                                     Provider.of<UserDataState>(
                                             context,

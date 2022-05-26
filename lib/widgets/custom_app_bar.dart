@@ -38,7 +38,7 @@ class CustomAppBar extends StatelessWidget {
                   context: context,
                         recommendedContent: true,
                         contentTagMultiplier: 0.0,
-                        limit: 5,
+                        limit: 20,
                         userTagPreferences:
                             Provider.of<UserDataState>(context,
                                     listen: false)

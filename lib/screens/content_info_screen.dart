@@ -118,7 +118,7 @@ class _ContentInfoState extends State<ContentInfo> {
                               .changeContent(
                                   newContent: content,
                                   generateSimilar: true,
-                                  limit: 10,
+                                  limit: 20,
                                   contentTagMultiplier: 1.0,
                                   userPrefMultiplier: 1.0,
                                   userTagPreferences:

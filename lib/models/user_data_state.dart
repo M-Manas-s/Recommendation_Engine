@@ -2,9 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
-import 'package:recommendation_engine/models/content_tag.dart';
 import 'package:recommendation_engine/models/models.dart';
-import 'content_model.dart';
 
 class UserDataState with ChangeNotifier {
 
