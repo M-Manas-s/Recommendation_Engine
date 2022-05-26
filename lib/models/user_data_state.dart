@@ -16,7 +16,7 @@ class UserDataState with ChangeNotifier {
     Response data = await http.get(Uri.parse('http://ip-api.com/json'));
     Map resData = jsonDecode(data.body);
     country = resData['country'];
-    _userTagPrefs.add(ContentTag(tagName: country, tagValue: 3.0));
+    _userTagPrefs.add(ContentTag(tagName: country, tagValue: 2.0));
   }
 
   UserDataState() {

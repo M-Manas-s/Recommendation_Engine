@@ -144,6 +144,7 @@ class _SearchScreenState extends State<SearchScreen> {
                               title: Text(controller.query),
                               leading: const Icon(Icons.search),
                               onTap: () {
+
                                 setState(() {
                                   addSearchTerm(controller.query);
                                   selectedTerm = controller.query;
@@ -172,9 +173,20 @@ class _SearchScreenState extends State<SearchScreen> {
                                         },
                                       ),
                                       onTap: () {
+                                        List<ContentTag> searchList = KeywordsToContentTag().getContentList(term);
+                                        Provider
+                                            .of<CurrentContentState>(context, listen: false)
+                                            .generatePreferredContent(
+                                            context: context,
+                                            recommendedContent: true,
+                                            contentTagMultiplier: 0.0,
+                                            limit: 20,
+                                            userTagPreferences: searchList,
+                                            userPrefMultiplier: 1.0);
                                         setState(() {
                                           putSearchTermFirst(term);
                                           selectedTerm = term;
+                                          _searched = true;
                                         });
                                         controller.close();
                                       }))

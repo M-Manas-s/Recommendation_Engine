@@ -1,10 +1,17 @@
 import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recommendation_engine/data/data.dart';
 import 'package:recommendation_engine/services/services.dart';
 
 import 'models.dart';
+
+extension SplayTreeMultiMapExtension<K, V> on SplayTreeMap<K, List<V>> {
+  void add(K key, V value) {
+    (this[key] ??= []).add(value);
+  }
+}
 
 class CurrentContentState with ChangeNotifier {
   late Content content;
@@ -35,49 +42,42 @@ class CurrentContentState with ChangeNotifier {
         userPrefMultiplier: userPrefMultiplier,
         userTagPreferences: userTagPreferences);
 
-
     // Returns the score of each content arranged in the same order as the
     // allContents list
 
     List<double> contentScores = contentScorer.rankAllContent();
 
-    Map<int, double> contentScoreMap = {};
+    // A SplayTreeMap is used to store the keys in sorted order
+    // Here, we reverse the keys and values => We store the score as key
+    // and value will be the index
+
+    // Since SplayTreeMap cannot handle duplicate values, which we may get because
+    // multiple content can have the same score, we store values as a list
+
+    SplayTreeMap<double, List<int>> contentScoreMap = SplayTreeMap();
     for (int i = 0; i < allContent.length; i++) {
-      contentScoreMap[i] = contentScores[i];
+      contentScoreMap.add(contentScores[i], i);
     }
 
-    // Sort the Map based on the basis on highest score
-
-    Map<int, double> sortedMap = SplayTreeMap<int, double>.from(
-        contentScoreMap,
-        (key1, key2) =>
-            -contentScoreMap[key1]!.compareTo(contentScoreMap[key2]!));
-
-    // Do not filter based on 0 score value if the user has no preferences set
-
-    if ( userTagPreferences.where((element) => element.tagName == "Empty").isEmpty ) {
-      sortedMap.removeWhere((key, value) => value == 0.0);
-    }
-
-    // Uncomment this to see the recommendations being generated
-
-    // print("${recommendedContent ? "Recommended" : "Similar"}: ");
-    // sortedMap.forEach((key, value) => print("Name: ${allContent[key].name}, Score : $value"));
-
-    // Now take top [limit] contents for preferred content
-
-    for (int index in sortedMap.keys) {
-      if ( Provider.of<UserDataState>(context,listen: false).watched.contains(allContent[index]) ) {
-        continue;
-      }
-      if (recommendedContent) {
-        recommended.add(allContent[index]);
-      } else {
-        similar.add(allContent[index]);
-      }
-      limit--;
-      if (limit == 0) {
-        break;
+    for (List<int> list in contentScoreMap.values.toList().reversed) {
+      for (int index in list) {
+        if ( contentScores[index] == 0.0 ) {
+          continue;
+        }
+        if (Provider.of<UserDataState>(context, listen: false)
+            .watched
+            .contains(allContent[index])) {
+          continue;
+        }
+        if (recommendedContent) {
+          recommended.add(allContent[index]);
+        } else {
+          similar.add(allContent[index]);
+        }
+        limit--;
+        if (limit == 0) {
+          break;
+        }
       }
     }
   }

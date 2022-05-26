@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    trending = allContent;
+    trending.addAll(allContent);
     trending.sort((a,b) => b.rating.compareTo(a.rating));
     trending.removeRange(20, trending.length);
     originals = allContent.where((element) => ( element.tags.where((e2) => e2.tagName == "Originals").isNotEmpty ) ).toList();

@@ -22,9 +22,15 @@ class ScrollControllerState with ChangeNotifier{
 
   void hardResetScroll()
   {
-    scrollController.jumpTo(0.0);
-    similarScrollController.jumpTo(0.0);
-    recommendedScrollController.jumpTo(0.0);
+    if ( scrollController.hasClients ) {
+      scrollController.jumpTo(0.0);
+    }
+    if ( similarScrollController.hasClients ) {
+      similarScrollController.jumpTo(0.0);
+    }
+    if ( recommendedScrollController.hasClients ) {
+      recommendedScrollController.jumpTo(0.0);
+    }
     notifyListeners();
   }
 

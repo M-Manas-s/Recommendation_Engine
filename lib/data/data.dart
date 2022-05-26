@@ -314,7 +314,7 @@ Content braveContent = Content(
     color: Colors.red,
     rating: 4.1,
     description:
-        "Princess Maria opposes a tradition that causes havoc in her realm, determined to forge her own path in life. Maria is given one wish and must use her bravery and archery abilities to break a monstrous curse.",
+        "Princess Maria opposes a tradition that causes havoc in her realm, determined to forge her own path in life. Maria is given one wish and must use her bravery and aviation abilities to break a monstrous curse.",
     tags: [
       ContentTag(tagName: "Kids", tagValue: 6.0),
       ContentTag(tagName: "Animated", tagValue: 5.0),
@@ -324,7 +324,7 @@ Content braveContent = Content(
       ContentTag(tagName: "Action", tagValue: 2.5),
       ContentTag(tagName: "Curse", tagValue: 3.0),
       ContentTag(tagName: "Brave", tagValue: 4.0),
-      ContentTag(tagName: "Archery", tagValue: 4.0),
+      ContentTag(tagName: "FLying", tagValue: 4.0),
     ]);
 
 Content bravesoulContent = Content(
@@ -906,9 +906,8 @@ Content theBigThingsContent = Content(
       ContentTag(tagName: "Crime", tagValue: 5.0),
       ContentTag(tagName: "Big", tagValue: 3.0),
       ContentTag(tagName: "Things", tagValue: 3.0),
-      ContentTag(tagName: "UK", tagValue: 3.0),
-      ContentTag(tagName: "Britain", tagValue: 3.0),
-      ContentTag(tagName: "British", tagValue: 3.0),
+      ContentTag(tagName: "US", tagValue: 3.0),
+      ContentTag(tagName: "American", tagValue: 3.0),
       ContentTag(tagName: "Mastermind", tagValue: 4.0),
       ContentTag(tagName: "Mystery", tagValue: 4.5),
       ContentTag(tagName: "Murder", tagValue: 2.5),
