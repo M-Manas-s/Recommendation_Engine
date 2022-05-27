@@ -4,7 +4,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     
    <application
-        android:label="recommendation_engine"
+        android:label="Megaflix"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

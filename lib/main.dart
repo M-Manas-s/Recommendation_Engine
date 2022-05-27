@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.black
       ),
-      title: 'Flutter Demo',
+      title: 'Megaflix',
       home: MultiProvider(
         providers: [
           ChangeNotifierProvider<GlobalNavState>(
