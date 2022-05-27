@@ -5,11 +5,13 @@ import 'widgets.dart';
 class VerticalContentList extends StatelessWidget {
   final ScrollPhysics scrollPhysics;
   final List<Content> contentList;
-  const VerticalContentList({Key? key, required this.contentList, this.scrollPhysics = const ScrollPhysics()}) : super(key: key);
+  final ScrollController scrollController;
+  VerticalContentList({Key? key, required this.contentList, this.scrollPhysics = const ScrollPhysics(), required this.scrollController }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+        controller: scrollController,
         physics: scrollPhysics,
         padding: const EdgeInsets.symmetric(
             vertical: 12.0),

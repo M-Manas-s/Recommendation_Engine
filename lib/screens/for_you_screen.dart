@@ -21,7 +21,7 @@ class _ForYouScreenState extends State<ForYouScreen> {
             key: PageStorageKey('forYou')
         ),
       ),
-      body: VerticalContentList(contentList: Provider.of<CurrentContentState>(context).recommended),
+      body: VerticalContentList(contentList: Provider.of<CurrentContentState>(context).recommended, scrollController: ScrollController(),),
     );
   }
 }

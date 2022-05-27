@@ -154,7 +154,7 @@ class _PlayMovieScreenState extends State<PlayMovieScreen> {
               VerticalContentList(
                 contentList:
                     Provider.of<CurrentContentState>(context, listen: false)
-                        .recommended,
+                        .recommended, scrollController: ScrollController(),
                 scrollPhysics: const NeverScrollableScrollPhysics(),
               )
             ],

@@ -293,7 +293,7 @@ Content boultContent = Content(
     name: 'Boult',
     imageUrl: Assets.boult,
     titleImageUrl: Assets.boultTitle,
-    color: Colors.red,
+    color: Colors.yellow,
     rating: 2.5,
     description:
         "A canine star of a fictional sci-fi/action show who believes his abilities are real sets out on a cross-country journey to save his co-star from a threat he believes is equally real.",
@@ -331,15 +331,14 @@ Content bravesoulContent = Content(
     name: 'Bravesoul',
     imageUrl: Assets.bravesoul,
     titleImageUrl: Assets.bravesoulTitle,
-    color: Colors.red,
+    color: Colors.orange,
     rating: 2.7,
     description:
         "Following the death of Alexander III of Scotland, who died without an heir, King Edward invades and conquers Scotland. William Wallace, a Scottish warrior, launches a revolt against King Edward I of England to free his nation.",
     tags: [
       ContentTag(tagName: "Invasion", tagValue: 3.5),
-      ContentTag(tagName: "Warrior", tagValue: 3.5),
+      ContentTag(tagName: "Warrior", tagValue: 4.5),
       ContentTag(tagName: "Revolt", tagValue: 4.0),
-      ContentTag(tagName: "Ship", tagValue: 5.5),
       ContentTag(tagName: "Scotland", tagValue: 3.0),
       ContentTag(tagName: "Britain", tagValue: 3.0),
       ContentTag(tagName: "Scottish", tagValue: 3.0),
@@ -415,7 +414,7 @@ Content excaliburContent = Content(
     name: 'Excalibur',
     imageUrl: Assets.excalibur,
     titleImageUrl: Assets.excaliburTitle,
-    color: Colors.red,
+    color: Colors.grey,
     rating: 4.0,
     description:
         "Even as dark powers attempt to break the Round Table of Camelot apart, Morin the magician aids Arakan Pendragon in uniting the Britons around it.",
@@ -445,7 +444,7 @@ Content extinctionContent = Content(
     name: 'Extinction',
     imageUrl: Assets.extinction,
     titleImageUrl: Assets.extinctionTitle,
-    color: Colors.red,
+    color: Colors.black,
     rating: 4.3,
     description:
         "A father has a frequent dream about his family being separated from him. When the Earth is attacked by a power bent on destruction, his dread becomes a reality.",
@@ -477,13 +476,13 @@ Content lastRideContent = Content(
     name: 'Last Ride',
     imageUrl: Assets.lastRide,
     titleImageUrl: Assets.lastRideTitle,
-    color: Colors.red,
+    color: Colors.grey,
     rating: 3.3,
     description:
         "After their 1962 high school graduation, a group of youngsters from California's central valley spend one final night cruising the strip with their friends before pursuing their various objectives.",
     tags: [
       ContentTag(tagName: "Friends", tagValue: 6.5),
-      ContentTag(tagName: "High School", tagValue: 5.0),
+      ContentTag(tagName: "School", tagValue: 5.0),
       ContentTag(tagName: "Adventure", tagValue: 6.5),
       ContentTag(tagName: "Night", tagValue: 3.5),
       ContentTag(tagName: "Life", tagValue: 6.5),
@@ -503,7 +502,7 @@ Content maggieAndFriendsContent = Content(
     name: 'Maggie And Friends',
     imageUrl: Assets.maggieAndFriends,
     titleImageUrl: Assets.maggieAndFriendsTitle,
-    color: Colors.red,
+    color: Colors.yellow,
     rating: 2.5,
     description:
         "Maggie, an introvert, is introduced to  new set of friends in a new neighbourhood. She must learn to live with those new friends now.",
@@ -522,7 +521,7 @@ Content maryInWonderlandContent = Content(
     name: 'Mary In Wonderland',
     imageUrl: Assets.maryInWonderland,
     titleImageUrl: Assets.maryInWonderlandTitle,
-    color: Colors.red,
+    color: Colors.purple,
     rating: 4.6,
     description:
         "Mary, nineteen, returns to the magical realm after a childhood adventure, where she reunites with old friends and discovers her true destiny: to put an end to the Red Queen's reign of terror.",
@@ -551,7 +550,7 @@ Content misterDynamiteContent = Content(
       ContentTag(tagName: "Politics", tagValue: 4.0),
       ContentTag(tagName: "American", tagValue: 4.0),
       ContentTag(tagName: "US", tagValue: 4.0),
-      ContentTag(tagName: "High School", tagValue: 5.5),
+      ContentTag(tagName: "School", tagValue: 5.5),
       ContentTag(tagName: "Teen", tagValue: 5.5),
       ContentTag(tagName: "Mister", tagValue: 4.0),
       ContentTag(tagName: "Dynamite", tagValue: 2.0),
@@ -561,7 +560,7 @@ Content oblivionContent = Content(
     name: 'Oblivion',
     imageUrl: Assets.oblivion,
     titleImageUrl: Assets.oblivionTitle,
-    color: Colors.red,
+    color: Colors.black,
     rating: 4.3,
     description:
         "A veteran tasked to collect Earth's last resources begins to doubt his own knowledge of the assignment and himself.",
@@ -585,12 +584,14 @@ Content onwardContent = Content(
     name: 'Onward',
     imageUrl: Assets.onward,
     titleImageUrl: Assets.onwardTitle,
-    color: Colors.red,
+    color: Colors.pink,
     rating: 3.4,
     description:
         "A couple sets off on a journey to discover their surroundings. The excursion that began as a short drive becomes a protracted experience.",
     tags: [
       ContentTag(tagName: "Adventure", tagValue: 6.0),
+      ContentTag(tagName: "Kids", tagValue: 6.0),
+      ContentTag(tagName: "Animated", tagValue: 5.0),
       ContentTag(tagName: "Couple", tagValue: 3.5),
       ContentTag(tagName: "Exploration", tagValue: 4.0),
       ContentTag(tagName: "Tourist", tagValue: 3.0),
@@ -607,7 +608,7 @@ Content prochantusContent = Content(
     name: 'Prochantus',
     imageUrl: Assets.prochantus,
     titleImageUrl: Assets.prochantusTitle,
-    color: Colors.red,
+    color: const Color(0x848484CD),
     rating: 3.7,
     description:
         "A crew searching for clues to humanity's origins discovers a structure on a faraway moon, but they quickly discover they are not alone.",
@@ -633,7 +634,7 @@ Content rameshBakshiContent = Content(
     name: 'Ramesh Bakshi',
     imageUrl: Assets.rameshBakshi,
     titleImageUrl: Assets.rameshBakshiTitle,
-    color: Colors.red,
+    color: const Color(0xCD848484),
     rating: 4.5,
     description:
         "Ramesh Bakshi has retired from active duty. When Vyom, an old buddy from the CBI, shows up seeking for assistance, Bakshi finds himself on the trail of a mysterious villain equipped with terrifying new technology.",
@@ -659,7 +660,7 @@ Content rocketScienceContent = Content(
     name: 'Rocket Science',
     imageUrl: Assets.rocketScience,
     titleImageUrl: Assets.rocketScienceTitle,
-    color: Colors.red,
+    color: Colors.orange,
     rating: 4.5,
     description:
         "A stuttering teen joins his high school debate team in search of answers to life's major issues.",
@@ -669,7 +670,7 @@ Content rocketScienceContent = Content(
       ContentTag(tagName: "Debate", tagValue: 4.0),
       ContentTag(tagName: "American", tagValue: 4.0),
       ContentTag(tagName: "US", tagValue: 4.0),
-      ContentTag(tagName: "High School", tagValue: 5.5),
+      ContentTag(tagName: "School", tagValue: 5.5),
       ContentTag(tagName: "Teen", tagValue: 5.5),
       ContentTag(tagName: "Rocket", tagValue: 4.0),
       ContentTag(tagName: "Science", tagValue: 2.0),
@@ -679,7 +680,7 @@ Content savingPrivateJonesContent = Content(
     name: 'Saving Private Jones',
     imageUrl: Assets.savingPrivateJones,
     titleImageUrl: Assets.savingPrivateJonesTitle,
-    color: Colors.red,
+    color: const Color(0x848484CD),
     rating: 4.9,
     description:
         "Following the Normandy Landings, a group of American soldiers goes beyond enemy lines to rescue a paratrooper whose brothers were killed in fighting.",
@@ -706,7 +707,7 @@ Content gloryPathContent = Content(
     name: 'Glory Path',
     imageUrl: Assets.gloryPath,
     titleImageUrl: Assets.gloryPathTitle,
-    color: Colors.red,
+    color: const Color(0x005dffff),
     rating: 4.0,
     description:
         "Coach Don Bravo of Texas Western leads the first all-black starting lineup in college basketball to the NCAA national championship in 1966.",
@@ -719,7 +720,7 @@ Content gloryPathContent = Content(
       ContentTag(tagName: "Strategy", tagValue: 4.5),
       ContentTag(tagName: "American", tagValue: 4.0),
       ContentTag(tagName: "US", tagValue: 4.0),
-      ContentTag(tagName: "High School", tagValue: 5.5),
+      ContentTag(tagName: "School", tagValue: 5.5),
       ContentTag(tagName: "Teen", tagValue: 4.0),
       ContentTag(tagName: "Glory", tagValue: 3.0),
       ContentTag(tagName: "Path", tagValue: 3.0),
@@ -729,7 +730,7 @@ Content gravityContent = Content(
     name: 'Gravity',
     imageUrl: Assets.gravity,
     titleImageUrl: Assets.gravityTitle,
-    color: Colors.red,
+    color: const Color(0x005dffff),
     rating: 2.0,
     description:
         "After an accident leaves them stuck in space, two astronauts aboard a space station work together to survive.",
@@ -753,7 +754,7 @@ Content heartOfTheSeaContent = Content(
     name: 'Heart Of The Sea',
     imageUrl: Assets.heartOfTheSea,
     titleImageUrl: Assets.heartOfTheSeaTitle,
-    color: Colors.red,
+    color: const Color(0xA3EDF8FF),
     rating: 2.6,
     description:
         "A story about the sinking of a New England whaling ship by a gigantic whale in 1820, which inspired the renowned novel Moby-Dick.",
@@ -778,7 +779,7 @@ Content helloJaceContent = Content(
     name: 'Hello Jace',
     imageUrl: Assets.helloJace,
     titleImageUrl: Assets.helloJaceTitle,
-    color: Colors.red,
+    color: Colors.orange,
     rating: 2.5,
     description:
         "Jace, a well-known comedian, is faced with a difficult decision between his friends and his career.",
@@ -798,7 +799,7 @@ Content hideyoshiIyeshuContent = Content(
     name: 'Hideyoshi Iyeshu',
     imageUrl: Assets.hideyoshiIyeshu,
     titleImageUrl: Assets.hideyoshiIyeshuTitle,
-    color: Colors.red,
+    color: Colors.black,
     rating: 3.6,
     description:
         "As events develop against him, a former assassin's pledge to never kill again is put to the test.",
@@ -825,7 +826,7 @@ Content immortalEnginesContent = Content(
     name: 'Immortal Engines',
     imageUrl: Assets.immortalEngines,
     titleImageUrl: Assets.immortalEnginesTitle,
-    color: Colors.red,
+    color: const Color(0x848484CD),
     rating: 3.2,
     description:
         "Two people meet in London and try to halt a conspiracy in a post-apocalyptic future where cities ride on wheels and consume one another to survive.",
@@ -848,7 +849,7 @@ Content survivormanContent = Content(
     name: 'Survivorman',
     imageUrl: Assets.survivorman,
     titleImageUrl: Assets.survivormanTitle,
-    color: Colors.red,
+    color: Colors.black,
     rating: 4.1,
     description:
         "Without food, shelter, or fresh water, one guy is left alone in the wilderness for seven days, relying solely on his wits and energy to survive.",
@@ -893,7 +894,7 @@ Content theBigThingsContent = Content(
     name: 'The Big Things',
     imageUrl: Assets.theBigThings,
     titleImageUrl: Assets.theBigThingsTitle,
-    color: Colors.red,
+    color: const Color(0x848484CD),
     rating: 4.3,
     description:
         "Kern County Deputy Sheriff Joe Deacon is dispatched to Los Angeles for a routine evidence gathering mission. Instead, he finds himself involved in the hunt for a serial killer terrorising the city.",
@@ -922,7 +923,7 @@ Content theBrightSideContent = Content(
     name: 'The Bright Side',
     imageUrl: Assets.theBrightSide,
     titleImageUrl: Assets.theBrightSideTitle,
-    color: Colors.red,
+    color: Colors.blueAccent,
     rating: 2.0,
     description:
         "With the support of a compassionate mother and her family, Mike Oster, a homeless and traumatised youngster, became an All-American football star and first-round NFL draught pick.",
@@ -936,7 +937,7 @@ Content theBrightSideContent = Content(
       ContentTag(tagName: "Strategy", tagValue: 4.5),
       ContentTag(tagName: "American", tagValue: 4.0),
       ContentTag(tagName: "US", tagValue: 4.0),
-      ContentTag(tagName: "High School", tagValue: 5.5),
+      ContentTag(tagName: "School", tagValue: 5.5),
       ContentTag(tagName: "Teen", tagValue: 4.0),
       ContentTag(tagName: "Bright", tagValue: 3.0),
       ContentTag(tagName: "Side", tagValue: 3.0),
@@ -946,7 +947,7 @@ Content theForestContent = Content(
     name: 'The Forest',
     imageUrl: Assets.theForest,
     titleImageUrl: Assets.theForestTitle,
-    color: Colors.red,
+    color: const Color(0x046F6BFF),
     rating: 4.0,
     description:
         "Sarah Williams, an American woman, travels to a Japanese forest in search of her twin sister who has gone missing. Things change, however, when she is attacked by demonic beings.",
@@ -954,6 +955,7 @@ Content theForestContent = Content(
       ContentTag(tagName: "Horror", tagValue: 6.5),
       ContentTag(tagName: "Forest", tagValue: 5.5),
       ContentTag(tagName: "USA", tagValue: 3.0),
+          ContentTag(tagName: "Wild", tagValue: 5.3),
       ContentTag(tagName: "Japan", tagValue: 3.0),
       ContentTag(tagName: "American", tagValue: 3.0),
       ContentTag(tagName: "Thriller", tagValue: 5.5),
@@ -995,7 +997,7 @@ Content thePiratesContent = Content(
     name: 'The Pirates',
     imageUrl: Assets.thePirates,
     titleImageUrl: Assets.thePiratesTitle,
-    color: Colors.red,
+    color: Colors.orange,
     rating: 2.6,
     description:
         "A pirate crew and a gang of robbers compete to capture a grey whale that has eaten a royal stamp.",
@@ -1019,7 +1021,7 @@ Content theTenthGateContent = Content(
     name: 'The Tenth Gate',
     imageUrl: Assets.theTenthGate,
     titleImageUrl: Assets.theTenthGateTitle,
-    color: Colors.red,
+    color: const Color(0xF3FF0B58),
     rating: 2.4,
     description:
         "While looking for the last two copies of a demon scripture, a rare book merchant is lured into a demonic plot.",
@@ -1046,7 +1048,7 @@ Content theTimeMachineContent = Content(
     name: 'The Time Machine',
     imageUrl: Assets.theTimeMachine,
     titleImageUrl: Assets.theTimeMachineTitle,
-    color: Colors.red,
+    color: const Color(0x848484CD),
     rating: 3.0,
     description:
         "In order to change the course of history, Alice, an inventor, travels 800,000 years into the future, where he discovers humanity divided into two warring species.",
@@ -1091,7 +1093,7 @@ Content babyBossContent = Content(
     name: 'Baby Boss',
     imageUrl: Assets.babyBoss,
     titleImageUrl: Assets.babyBossTitle,
-    color: Colors.red,
+    color: Colors.pink,
     rating: 3.4,
     description:
         "A boss baby with a cutting-edge strategy is going to resurrect a failing corporation and turn it into a business empire.",
@@ -1108,7 +1110,7 @@ Content zForZecheranContent = Content(
     name: 'Z For Zecheran',
     imageUrl: Assets.zForZecheran,
     titleImageUrl: Assets.zForZecheranTitle,
-    color: Colors.red,
+    color: Colors.brown,
     rating: 2.6,
     description:
         "Two men and a young woman find themselves in a wrecked city after a tragedy wipes away most of civilization, and they must survive and live with whatever the ruins have to give.",

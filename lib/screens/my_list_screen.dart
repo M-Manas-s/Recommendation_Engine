@@ -26,7 +26,7 @@ class _MyListScreenState extends State<MyListScreen> {
             ? VerticalContentList(
                 contentList:
                     Provider.of<UserDataState>(context, listen: false)
-                        .myList)
+                        .myList, scrollController: ScrollController())
             : const Center(
                 child: Text(
                 "Add something here!",

@@ -16,6 +16,7 @@ class _SearchScreenState extends State<SearchScreen> {
   static const historyLength = 5;
   final List<String> _searchHistory = [];
   late List<String> _filteredSearchHistory;
+  final ScrollController scrollController = ScrollController();
   String? selectedTerm;
   bool _searched = false;
 
@@ -86,7 +87,7 @@ class _SearchScreenState extends State<SearchScreen> {
               body: Padding(
                 padding: const EdgeInsets.only(top: 60.0),
                 child: !_searched ? const Center(child: Text("Search something!",style: TextStyle(color: Colors.white,fontSize: 30),))
-                : VerticalContentList(contentList: Provider.of<CurrentContentState>(context).recommended,),
+                : VerticalContentList(scrollController: scrollController,contentList: Provider.of<CurrentContentState>(context).recommended,),
               ),
               transition: CircularFloatingSearchBarTransition(),
               physics: const NeverScrollableScrollPhysics(),
@@ -111,6 +112,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     userTagPreferences: searchList,
                     userPrefMultiplier: 1.0);
                 setState(() {
+                  scrollController.animateTo(0.0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
                   addSearchTerm(query);
                   selectedTerm = query;
                   _searched = true;
@@ -184,6 +186,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                             userTagPreferences: searchList,
                                             userPrefMultiplier: 1.0);
                                         setState(() {
+                                          scrollController.animateTo(0.0, duration: const Duration(milliseconds: 300), curve: Curves.linear);
                                           putSearchTermFirst(term);
                                           selectedTerm = term;
                                           _searched = true;

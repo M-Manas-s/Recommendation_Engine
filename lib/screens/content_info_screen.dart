@@ -139,7 +139,7 @@ class _ContentInfoState extends State<ContentInfo> {
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: ContentNameRatingDescription(content: Provider.of<CurrentContentState>(context).content,),
+              child: ContentNameRatingDescription(titleTextSize: 22,content: Provider.of<CurrentContentState>(context).content,),
             ),
           ),
           SliverToBoxAdapter(

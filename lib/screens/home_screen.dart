@@ -20,6 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
+    trending.clear();
     trending.addAll(allContent);
     trending.sort((a,b) => b.rating.compareTo(a.rating));
     trending.removeRange(20, trending.length);
