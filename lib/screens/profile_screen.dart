@@ -3,11 +3,15 @@ import 'package:provider/provider.dart';
 import 'package:recommendation_engine/models/models.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-class ProfileScreen extends StatelessWidget {
-
+class ProfileScreen extends StatefulWidget {
 
   const ProfileScreen({Key? key}) : super(key: key);
 
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -46,6 +50,7 @@ class ProfileScreen extends StatelessWidget {
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(primary: Colors.white),
                       onPressed: () {
+                        setState((){});
                         Provider.of<UserDataState>(context, listen: false)
                             .resetData();
                         Provider.of<CurrentContentState>(context, listen: false)
