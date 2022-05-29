@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-
 import '../assets.dart';
 import '../models/models.dart';
+
+// This file stores the hard-coded data used inside the application
 
 String dummyVideoUrl =  Assets.dummyVideo;
 
@@ -321,7 +322,6 @@ Content braveContent = Content(
       ContentTag(tagName: "Fantasy", tagValue: 4.0),
       ContentTag(tagName: "Adventure", tagValue: 4.0),
       ContentTag(tagName: "Comedy", tagValue: 3.5),
-      ContentTag(tagName: "Action", tagValue: 2.5),
       ContentTag(tagName: "Curse", tagValue: 3.0),
       ContentTag(tagName: "Brave", tagValue: 4.0),
       ContentTag(tagName: "FLying", tagValue: 4.0),

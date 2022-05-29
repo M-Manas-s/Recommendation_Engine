@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// Custom Icon button used by the build options ( List and Info )
+
 class CustomIconButton extends StatelessWidget {
   final IconData icon;
   final String title;

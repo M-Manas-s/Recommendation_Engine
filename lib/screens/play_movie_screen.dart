@@ -6,6 +6,8 @@ import 'package:recommendation_engine/models/models.dart';
 import 'package:recommendation_engine/widgets/widgets.dart';
 import 'package:video_player/video_player.dart';
 
+// The screen where one can watch the content ( movie ).
+
 class PlayMovieScreen extends StatefulWidget {
   final Content content;
 
@@ -33,11 +35,18 @@ class _PlayMovieScreenState extends State<PlayMovieScreen> {
       _videoPlayerController
         ..addListener(() {
           setState(() {});
+
+          // Everytime the position of video is at the end of the video, we increment the cycles variable by one.
+
           if (_videoPlayerController.value.isInitialized &&
               _videoPlayerController.value.position ==
                   _videoPlayerController.value.duration &&  _videoPlayerController.value.position != Duration.zero &&
           !_videoPlayerController.value.isPlaying) {
             _videoPlayerController.seekTo(Duration.zero);
+
+            // As this function can be called multiple times per second, but we only need to count
+            // one cycle, we can use a semaphore to create a critical region for updating the cycles variable
+
             if (semaphore) {
               cycles++;
               semaphore = false;
@@ -54,6 +63,13 @@ class _PlayMovieScreenState extends State<PlayMovieScreen> {
 
   @override
   void dispose() {
+
+    // The rating and watching movie preferences can change the user preferences infinitely many time
+    // The listing and content info preference can only change the user preference once
+
+    // The totalCycles variable stores the total number of times the video has been watched
+    // in the current session. It also includes the fraction of video watched.
+
     double totalCycles = cycles * 1.0 +
         _videoPlayerController.value.position.inMilliseconds /
             _videoPlayerController.value.duration.inMilliseconds;
@@ -70,6 +86,8 @@ class _PlayMovieScreenState extends State<PlayMovieScreen> {
 
     double ratingMultiplier = (finalRating - 2.5) / 2.5;
     userDataState.updateTagPreference(widget.content.tags, ratingMultiplier);
+
+    // The user needs to watch the video at least once completely to count it as a watched video
 
     if (totalCycles >= 1.0) {
       userDataState.watched.add(widget.content);

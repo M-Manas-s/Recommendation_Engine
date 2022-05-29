@@ -20,6 +20,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
+
+    // Initializing trending based on Content with highest rating
+    // Originals is a Content Tag that can be searched, and hence added to the Originals list
+
     trending.clear();
     trending.addAll(allContent);
     trending.sort((a,b) => b.rating.compareTo(a.rating));

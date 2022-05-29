@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recommendation_engine/models/user_data_state.dart';
-
 import '../widgets/widgets.dart';
+
+// Shows all the contents that are added to the List
 
 class MyListScreen extends StatefulWidget {
   const MyListScreen({Key? key}) : super(key: key);

@@ -1,11 +1,11 @@
 import 'dart:collection';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recommendation_engine/data/data.dart';
 import 'package:recommendation_engine/services/services.dart';
-
 import 'models.dart';
+
+// Extends splash tree as a multimap by linking same values together
 
 extension SplayTreeMultiMapExtension<K, V> on SplayTreeMap<K, List<V>> {
   void add(K key, V value) {

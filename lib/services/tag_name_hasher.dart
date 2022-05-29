@@ -59,6 +59,11 @@ class TagNameHasher {
 
   int hashString(String s)
   {
+
+    // If we already have the hashValue stored, we can return it. This is where SplayTrees are faster than
+    // normal self-balancing binary trees - they can store commonly fetches words with higher priority ( near
+    // the root). Hence, retrieval might even take less than logarithmic time.
+
     if ( hashedValues.containsKey(s) )
       {
         return hashedValues[s]!;

@@ -10,7 +10,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,6 +18,9 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.black
       ),
       title: 'Megaflix',
+
+      // Providers implemented on the root of the tree as most of the state data is global.
+
       home: MultiProvider(
         providers: [
           ChangeNotifierProvider<GlobalNavState>(

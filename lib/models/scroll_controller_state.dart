@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+// This class is used to control the scroll state of the static page - Content Info page
+// The page can be hence scroll from any other page in the app
+
 class ScrollControllerState with ChangeNotifier{
 
   ScrollController scrollController = ScrollController();

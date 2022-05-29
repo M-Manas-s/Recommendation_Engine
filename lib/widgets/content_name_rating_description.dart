@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-
 import '../models/models.dart';
+
+// Build the name, description and rating of the content
+// Note that the rating is hardcoded and is never updated as
+// the app is a standalone application
 
 class ContentNameRatingDescription extends StatelessWidget {
   final Content content;

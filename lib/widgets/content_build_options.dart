@@ -1,9 +1,12 @@
 import 'package:flash/flash.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../models/models.dart';
 import 'widgets.dart';
+
+// Basically builds the content option - list, play and build
+// One of the most influential widget as it is responsible for a lot of
+// work inside the app.
 
 class ContentBuildOptions extends StatelessWidget {
 
@@ -53,6 +56,10 @@ class ContentBuildOptions extends StatelessWidget {
           icon: Icons.add,
           title: 'List',
           onTap: () {
+
+            // Adds the current content to the list if it isn't added already.
+            // Shows 'Already Listed' if added
+
             if ( !Provider.of<UserDataState>(context,listen: false)
                 .myList.contains(content) ) {
               Provider.of<UserDataState>(context, listen: false)
@@ -69,6 +76,16 @@ class ContentBuildOptions extends StatelessWidget {
         ),
         PlayButton(
           playFunction: () {
+
+            // Playing the content triggers these actions -
+
+            // 1) Change the content
+            // 2) Get recommendations on the new content
+            // 3) Switch to the video player screen
+            // 4) Switch to the 'Home' screen
+            // 5) Switch to the Content Info page ( Movie player is painted over it using the playingVideo boolean )
+            // 6) Reset the global scrollControllers scroll position to the top
+
             Provider.of<CurrentContentState>(context, listen: false)
                 .changeContent(
                     context: context,
@@ -100,10 +117,19 @@ class ContentBuildOptions extends StatelessWidget {
             icon: Icons.info_outline,
             title: 'Info',
             onTap: () async {
+
+              // Viewing the content triggers these actions -
+
+              // 1) Change the content
+              // 2) Get recommendations on the new content
+              // 3) Switch to the 'Home' screen
+              // 4) Switch to the Content Info page ( Movie player is not painted now as the playingVideo boolean is not set )
+              // 5) Reset the global scrollControllers scroll position to the top
+
               Provider.of<CurrentContentState>(context, listen: false)
                   .changeContent(
                       newContent: content,
-                      contentTagMultiplier: 2.0,
+                      contentTagMultiplier: 1.0,
                       generateSimilar: true,
                       limit: 20,
                       userTagPreferences: Provider.of<UserDataState>(

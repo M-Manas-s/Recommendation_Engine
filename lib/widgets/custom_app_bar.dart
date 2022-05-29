@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recommendation_engine/models/models.dart';
-
 import '../assets.dart';
+
+// Build the top app bar
 
 class CustomAppBar extends StatelessWidget {
 
@@ -15,13 +16,14 @@ class CustomAppBar extends StatelessWidget {
     return Container(
       height: 100.0,
       padding: const EdgeInsets.symmetric(
-        vertical: 20.0,
+        vertical: 5.0,
         horizontal: 24.0,
       ),
 
       // Clamp the opacity between 0 and 1
       // based on the scrolling pixels
       // That means - scrolling 350 pixels will render the Opacity as 1
+
       key: key,
       color: Colors.black.withOpacity((scrollOffset/350).clamp(0,1).toDouble()),
 
@@ -29,7 +31,8 @@ class CustomAppBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Image.asset(Assets.appIcon),
+            Padding(padding: const EdgeInsets.all(8),
+            child: Image.asset(Assets.appIcon)),
             _AppBarButton(title: "Movies", onTap: () => Provider.of<GlobalNavState>(context,listen: false).changeHomeScreenIndex(0)),
             _AppBarButton(title: "For You", onTap: () {
               Provider
@@ -68,7 +71,7 @@ class _AppBarButton extends StatelessWidget {
     return GestureDetector(
       onTap: () => onTap(),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(5.0),
         child: Text(
           title,
           style: const TextStyle(

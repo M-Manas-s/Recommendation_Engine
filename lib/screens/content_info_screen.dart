@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recommendation_engine/screens/screens.dart';
-
 import '../models/models.dart';
 import '../widgets/widgets.dart';
+
+// The screen that shows the Info of the Content
 
 class ContentInfo extends StatefulWidget {
 

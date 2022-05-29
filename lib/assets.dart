@@ -1,3 +1,5 @@
+// Stores the path of all the assets used in the application
+
 class Assets{
   static const String _images = 'assets/images/';
   static const String _videos = 'assets/videos/';

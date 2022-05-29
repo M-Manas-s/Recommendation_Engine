@@ -1,11 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
-
 import '../models/models.dart';
 import '../widgets/widgets.dart';
 
-// Builds the featured area on the home page, with list, play and info buttons
+// Builds the preview area of the homepage
 
 class ContentHeader extends StatefulWidget {
   final Content featuredContent;
@@ -32,6 +31,10 @@ class _ContentHeaderState extends State<ContentHeader> {
                     _videoPlayerController.value.duration &&
                 _videoPlayerController.value.duration != Duration.zero) {
               setState(() {
+
+                // The video player is set to loop with a gap of  5 seconds during which
+                // the content poster and name is shown
+
                 _videoPlayerController.seekTo(Duration.zero);
                 Timer(const Duration(seconds: 5), () {
                   if ( mounted ) {

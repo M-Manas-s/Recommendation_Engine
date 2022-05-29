@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+// This state class stores the state of pages in the navigation bar
+
+// The two navigation bars used in the application are - Appbar and Bottom Navigation Bar
+
 class GlobalNavState with ChangeNotifier {
   int _currentHomeScreenIndex = 0;
   int _currentParentScreenIndex = 0;
@@ -22,6 +26,8 @@ class GlobalNavState with ChangeNotifier {
     }
     notifyListeners();
   }
+
+  // This serves as a switch in the content info screen where playingVideo send it to the video player screen
 
   void changePlayingVideo(bool value)
   {

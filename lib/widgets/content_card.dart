@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:recommendation_engine/widgets/widgets.dart';
-
 import '../models/content_model.dart';
 
 class ContentCard extends StatelessWidget {

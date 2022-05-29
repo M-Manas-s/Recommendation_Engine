@@ -1,3 +1,5 @@
+// A good practise to import all similar type of files into a single file
+
 export 'content_model.dart';
 export 'content_tag.dart';
 export 'global_nav_state.dart';

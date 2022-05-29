@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:recommendation_engine/models/models.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
+// Profile screen builds the pie chart of the Tag preference of the user against the tag value
+
 class ProfileScreen extends StatefulWidget {
 
   const ProfileScreen({Key? key}) : super(key: key);

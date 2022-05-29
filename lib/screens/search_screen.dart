@@ -5,6 +5,8 @@ import 'package:recommendation_engine/models/models.dart';
 import 'package:recommendation_engine/services/services.dart';
 import 'package:recommendation_engine/widgets/vertical_content_list.dart';
 
+// Searches for the content based on tags. The tags are basically the keywords extracted from the search terms.
+
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
 
@@ -101,6 +103,9 @@ class _SearchScreenState extends State<SearchScreen> {
                 });
               },
               onSubmitted: (query) {
+
+                // Extract the tags from the search query using the getContentList function. Head over there for more detail.
+
                 List<ContentTag> searchList = KeywordsToContentTag().getContentList(query);
                 Provider
                     .of<CurrentContentState>(context, listen: false)

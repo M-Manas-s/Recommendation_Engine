@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import '../models/models.dart';
 import 'widgets.dart';
 
+// Vertical List of Content
+
 class VerticalContentList extends StatelessWidget {
   final ScrollPhysics scrollPhysics;
   final List<Content> contentList;
   final ScrollController scrollController;
-  VerticalContentList({Key? key, required this.contentList, this.scrollPhysics = const ScrollPhysics(), required this.scrollController }) : super(key: key);
+  const VerticalContentList({Key? key, required this.contentList, this.scrollPhysics = const ScrollPhysics(), required this.scrollController }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

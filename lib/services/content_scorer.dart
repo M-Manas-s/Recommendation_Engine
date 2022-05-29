@@ -27,6 +27,7 @@ class ContentScorer{
   }
 
   void buildPreferencesScore() {
+
     // Here we are combining the preferences of current point of interest (content) and
     // user's personal preferences
 
@@ -70,6 +71,7 @@ class ContentScorer{
   }
 
   List<double> rankAllContent() {
+
     // This function ranks all the content based on the preferences built
     // and return a list of values with scores of each content arranged
     // in the same order as in the original list
@@ -80,18 +82,18 @@ class ContentScorer{
       Content content = allContent[i];
         double score = 0.0;
         if (watched.contains(content) || ( contentTagMultiplier > 0.0 && content == focusContent)) {
-        // We won't rank watch movies againS
+        // We won't rank watch movies again or rank the current point of interest
         allContentScores[i] = 0;
         continue;
       }
 
       // We will extract every tag from content and then hash its name
-        // After that if that Tag exists in the preferences that we are
-        // matching, we multiply the tag score and add it to the final score
+      // After that if that Tag exists in the preferences that we are
+      // matching, we multiply the tag score and add it to the final score
 
-        // For example -  If a user has "comedy" preference of 12.5, and
-        // The content has "comedy" preference of 10.0, the score added will
-        // be 12.5*10.0 = 125.0
+      // For example -  If a user has "comedy" preference of 12.5, and
+      // The content has "comedy" preference of 10.0, the score added will
+      // be 12.5*10.0 = 125.0
 
         for ( ContentTag contentTag in content.tags ) {
           int hashedTagName = _tagNameHasher.hashString(contentTag.tagName);
