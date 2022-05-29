@@ -33,7 +33,7 @@ All third party libraries have been imported from [pub.dev](https://pub.dev/). T
 
 ## License
 
-All the images and videos used in the application have been covered under open license. All the content used inside the application (including movie names, images, description, etc.) have been made as unique as possible. Any similarities with existing content is purely coincidental.
+All the images and videos used in the application have been covered under open licenses. All the content used inside the application (including movie names, images, description, etc.) have been made as unique as possible. Any similarities with existing content is purely coincidental.
 
 - [Pixabay License](https://pixabay.com/service/license/)
 - [Flaticon License](https://www.flaticon.com)
@@ -46,4 +46,4 @@ The detailed explanation of the application is available in the [Canva Presentat
 
 ## Contributing
 
-No code is perfect. This project will also require the support of Github Community is the future. Contributing will be enabled soon.
+No code is perfect. This project will also require the support of Github Community in the future. Contributing will be enabled soon.
