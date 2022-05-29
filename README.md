@@ -41,7 +41,7 @@ All the images and videos used in the application have been covered under open l
 
 ## About the Application
 
-The detailed explanation of the application is available in the [Canva Presentation](https://www.canva.com/design/DAFCEjZzhqI/Z93H9HAevUXgz2rMjifRSw/view?utm_content=DAFCEjZzhqI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton#2). The following [video](https://drive.google.com/file/d/14sn-ts0X_lYpwLomUolLusdOQEA4tkP8/view?usp=sharing) can serve as a good overview of the entire application and the algorithms running under the hood.
+The detailed explanation of the application is available in the [Canva Presentation](https://www.canva.com/design/DAFCEjZzhqI/Z93H9HAevUXgz2rMjifRSw/view?utm_content=DAFCEjZzhqI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton#1). The following [video](https://drive.google.com/file/d/14sn-ts0X_lYpwLomUolLusdOQEA4tkP8/view?usp=sharing) can serve as a good overview of the entire application and the algorithms running under the hood.
 
 
 ## Contributing
